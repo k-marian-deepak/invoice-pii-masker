@@ -1,6 +1,5 @@
-fastapi
-uvicorn
-python-multipart
+flask
+werkzeug
 pillow
 opencv-python
 pytesseract
