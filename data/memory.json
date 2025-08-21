@@ -1,0 +1,2174 @@
+{
+  "label_synonyms": {
+    "GSTIN": [
+      "gstin",
+      "gst no",
+      "gst number",
+      "gst",
+      "goods and services tax"
+    ],
+    "PAN": [
+      "pan",
+      "pan no",
+      "pan number"
+    ],
+    "Email": [
+      "email",
+      "e-mail",
+      "mail id"
+    ],
+    "Phone": [
+      "phone",
+      "mobile",
+      "contact"
+    ],
+    "PIN": [
+      "pin",
+      "pincode",
+      "postal code",
+      "zip"
+    ],
+    "Date": [
+      "date",
+      "invoice date",
+      "bill date"
+    ],
+    "Amount": [
+      "total",
+      "amount",
+      "grand total",
+      "invoice total",
+      "balance due"
+    ],
+    "highly sensitive information (mask these first)": [
+      "highly sensitive information (mask these first)"
+    ],
+    "bank account details: this is the most critical information to mask.": [
+      "bank account details: this is the most critical information to mask."
+    ],
+    "routing #: 121000248": [
+      "routing #: 121000248"
+    ],
+    "account #: 4943582890": [
+      "account #: 4943582890"
+    ],
+    "swift code: wfbius6s": [
+      "swift code: wfbius6s"
+    ],
+    "tax & business ids:": [
+      "tax & business ids:"
+    ],
+    "fed tax id#: 94-2904864": [
+      "fed tax id#: 94-2904864"
+    ],
+    "duns#: 08-043-1663": [
+      "duns#: 08-043-1663"
+    ],
+    "transaction & customer specific information": [
+      "transaction & customer specific information"
+    ],
+    "invoice number:": [
+      "invoice number:"
+    ],
+    "ltl invoice#: 177-422556 (appears in multiple places)": [
+      "ltl invoice#: 177-422556 (appears in multiple places)"
+    ],
+    "company names & addresses: masking these prevents linking the transaction to specific entities.": [
+      "company names & addresses: masking these prevents linking the transaction to specific entities."
+    ],
+    "shipper: polydyne corp / polydynamie and their full address (10 shuffler industrial park...)": [
+      "shipper: polydyne corp / polydynamie and their full address (10 shuffler industrial park...)"
+    ],
+    "consignee: ocean county utilities and their full address (501 hickory ln...)": [
+      "consignee: ocean county utilities and their full address (501 hickory ln...)"
+    ],
+    "bill to: snf holding company / cass information systems inc and their full address (po box 67...)": [
+      "bill to: snf holding company / cass information systems inc and their full address (po box 67...)"
+    ],
+    "remit to address: po box 660006, dallas, tx 75266-0006": [
+      "remit to address: po box 660006, dallas, tx 75266-0006"
+    ],
+    "customer numbers: these are unique identifiers for the customer accounts.": [
+      "customer numbers: these are unique identifiers for the customer accounts."
+    ],
+    "sn#: 903515568": [
+      "sn#: 903515568"
+    ],
+    "other codes: 11 snpa, 12 snthol, 6y dryvan, 93 013": [
+      "other codes: 11 snpa, 12 snthol, 6y dryvan, 93 013"
+    ],
+    "contact information:": [
+      "contact information:"
+    ],
+    "phone: 1-800-755-2728": [
+      "phone: 1-800-755-2728"
+    ],
+    "email: ltlccg@xpo.com": [
+      "email: ltlccg@xpo.com"
+    ],
+    "financial & shipment details": [
+      "financial & shipment details"
+    ],
+    "all monetary values: this includes all charges, discounts, and totals.": [
+      "all monetary values: this includes all charges, discounts, and totals."
+    ],
+    "charges: $4,690.00": [
+      "charges: $4,690.00"
+    ],
+    "discount: -$4,207.45": [
+      "discount: -$4,207.45"
+    ],
+    "surcharge: $123.00": [
+      "surcharge: $123.00"
+    ],
+    "other charges: $150.00, $50.00": [
+      "other charges: $150.00, $50.00"
+    ],
+    "total due: us $732.14": [
+      "total due: us $732.14"
+    ],
+    "shipment details:": [
+      "shipment details:"
+    ],
+    "shipment date: 04/01/2025": [
+      "shipment date: 04/01/2025"
+    ],
+    "description of articles: plt resin compont 46030-0 class 55 (this could be commercially sensitive information about what is being traded).": [
+      "description of articles: plt resin compont 46030-0 class 55 (this could be commercially sensitive information about what is being traded)."
+    ],
+    "weight: 9,656 lbs": [
+      "weight: 9,656 lbs"
+    ],
+    "internal and document-specific codes": [
+      "internal and document-specific codes"
+    ],
+    "barcode on the left side.": [
+      "barcode on the left side."
+    ],
+    "tracking/processing codes at the bottom of the page:": [
+      "tracking/processing codes at the bottom of the page:"
+    ],
+    "177422556 0073214 6": [
+      "177422556 0073214 6"
+    ],
+    "46 6 ep 2 870 e0087 i0167 d4305845003 s3 p4267713 0032 0037": [
+      "46 6 ep 2 870 e0087 i0167 d4305845003 s3 p4267713 0032 0037"
+    ],
+    "of course. here is a list of all the private and sensitive information you should mask in this invoice.": [
+      "of course. here is a list of all the private and sensitive information you should mask in this invoice."
+    ],
+    "business & account numbers: these are unique identifiers for the companies, accounts, and the transaction itself.": [
+      "business & account numbers: these are unique identifiers for the companies, accounts, and the transaction itself."
+    ],
+    "freight bill / pro number: 28510427": [
+      "freight bill / pro number: 28510427"
+    ],
+    "shipper / customer account numbers: 2790343 and 9899006": [
+      "shipper / customer account numbers: 2790343 and 9899006"
+    ],
+    "shipper bl number: 310023222240": [
+      "shipper bl number: 310023222240"
+    ],
+    "po number: 2025021014522": [
+      "po number: 2025021014522"
+    ],
+    "shipper reference number: 821776613": [
+      "shipper reference number: 821776613"
+    ],
+    "customer (on remit stub): 6m27903": [
+      "customer (on remit stub): 6m27903"
+    ],
+    "company & location information": [
+      "company & location information"
+    ],
+    "company names & addresses: masking these prevents linking the document to the specific parties involved.": [
+      "company names & addresses: masking these prevents linking the document to the specific parties involved."
+    ],
+    "sender/biller: dayton freight lines, inc and their full address (po box 1030, vandalia, oh...)": [
+      "sender/biller: dayton freight lines, inc and their full address (po box 1030, vandalia, oh...)"
+    ],
+    "bill to: square d co (des moines dock) / c/o cass information systems and their address (po box 67, saint louis, mo...)": [
+      "bill to: square d co (des moines dock) / c/o cass information systems and their address (po box 67, saint louis, mo...)"
+    ],
+    "shipper: square d company drop dsm sc and their address (1101 adventureland dr...)": [
+      "shipper: square d company drop dsm sc and their address (1101 adventureland dr...)"
+    ],
+    "consignee: diversified remediation control and their address (9325 winnetka ave n...)": [
+      "consignee: diversified remediation control and their address (9325 winnetka ave n...)"
+    ],
+    "phone: (937) 264-4060": [
+      "phone: (937) 264-4060"
+    ],
+    "all monetary values: this includes all charges, rates, and totals.": [
+      "all monetary values: this includes all charges, rates, and totals."
+    ],
+    "charges: $96.00": [
+      "charges: $96.00"
+    ],
+    "discount: $37.50": [
+      "discount: $37.50"
+    ],
+    "other charges: $8.04": [
+      "other charges: $8.04"
+    ],
+    "line item amounts: $96.00, $8.04, $104.04": [
+      "line item amounts: $96.00, $8.04, $104.04"
+    ],
+    "pay this amount / invoice amount: $66.54": [
+      "pay this amount / invoice amount: $66.54"
+    ],
+    "dates:": [
+      "dates:"
+    ],
+    "date: 02/13/2025": [
+      "date: 02/13/2025"
+    ],
+    "invoice date: 02/18/2025": [
+      "invoice date: 02/18/2025"
+    ],
+    "shipment specifics: this information can be commercially sensitive.": [
+      "shipment specifics: this information can be commercially sensitive."
+    ],
+    "description: nmfc# 03160 sub 9, skid circuit breakers or switches...": [
+      "description: nmfc# 03160 sub 9, skid circuit breakers or switches..."
+    ],
+    "fuel surcharge percentage: 13.750%": [
+      "fuel surcharge percentage: 13.750%"
+    ],
+    "weight: 70": [
+      "weight: 70"
+    ],
+    "rate: 119": [
+      "rate: 119"
+    ],
+    "payment terms: prepaid net 15 days": [
+      "payment terms: prepaid net 15 days"
+    ],
+    "all barcodes.": [
+      "all barcodes."
+    ],
+    "machine-readable line below the bill to address: e0028 10007...": [
+      "machine-readable line below the bill to address: e0028 10007..."
+    ],
+    "tracking codes at the bottom left: 0038 0168": [
+      "tracking codes at the bottom left: 0038 0168"
+    ],
+    "file name: 38552085.png": [
+      "file name: 38552085.png"
+    ],
+    "business & account numbers: these are unique identifiers for the transaction and the companies involved.": [
+      "business & account numbers: these are unique identifiers for the transaction and the companies involved."
+    ],
+    "freight bill / pro number: 28510513": [
+      "freight bill / pro number: 28510513"
+    ],
+    "shipper / customer account numbers: 2790343 and 0090427": [
+      "shipper / customer account numbers: 2790343 and 0090427"
+    ],
+    "shipper bl number: 310023240914": [
+      "shipper bl number: 310023240914"
+    ],
+    "po number: 4505828678": [
+      "po number: 4505828678"
+    ],
+    "shipper reference number: 821802341": [
+      "shipper reference number: 821802341"
+    ],
+    "sender/biller: dayton freight lines, inc and their full address (po box 368, vandalia, oh...)": [
+      "sender/biller: dayton freight lines, inc and their full address (po box 368, vandalia, oh...)"
+    ],
+    "shipper: schneider electric and their address (1101 adventureland dr...)": [
+      "shipper: schneider electric and their address (1101 adventureland dr...)"
+    ],
+    "consignee: border states and their address (100 carlton st sw...)": [
+      "consignee: border states and their address (100 carlton st sw...)"
+    ],
+    "all monetary values: this includes all charges, rates, discounts, and totals.": [
+      "all monetary values: this includes all charges, rates, discounts, and totals."
+    ],
+    "line item amounts: $253.22, $33.88, $8.04, $295.14": [
+      "line item amounts: $253.22, $33.88, $8.04, $295.14"
+    ],
+    "charges: $287.10": [
+      "charges: $287.10"
+    ],
+    "discount: $228.60": [
+      "discount: $228.60"
+    ],
+    "date: 02/14/2025": [
+      "date: 02/14/2025"
+    ],
+    "invoice date: 02/19/2025": [
+      "invoice date: 02/19/2025"
+    ],
+    "shipment specifics: this is commercially sensitive information.": [
+      "shipment specifics: this is commercially sensitive information."
+    ],
+    "description: nmfc# 03160 sub 9, skid circuit breakers or switches..., rec hrs 8a-5p": [
+      "description: nmfc# 03160 sub 9, skid circuit breakers or switches..., rec hrs 8a-5p"
+    ],
+    "weight: 70, 441": [
+      "weight: 70, 441"
+    ],
+    "rate: 57.42": [
+      "rate: 57.42"
+    ],
+    "machine-readable line below the bill to address: e006f 10765...": [
+      "machine-readable line below the bill to address: e006f 10765..."
+    ],
+    "tracking codes at the bottom left: 0138 0168": [
+      "tracking codes at the bottom left: 0138 0168"
+    ],
+    "account number:": [
+      "account number:"
+    ],
+    "860847426": [
+      "860847426"
+    ],
+    "transaction & document ids: these are unique identifiers for the shipment and invoice.": [
+      "transaction & document ids: these are unique identifiers for the shipment and invoice."
+    ],
+    "freight bill number: 6386880500": [
+      "freight bill number: 6386880500"
+    ],
+    "bill of lading number: 30107": [
+      "bill of lading number: 30107"
+    ],
+    "p.o. number: 1108078776": [
+      "p.o. number: 1108078776"
+    ],
+    "company names & addresses: masking these prevents linking the transaction to the involved parties.": [
+      "company names & addresses: masking these prevents linking the transaction to the involved parties."
+    ],
+    "shipper: woodland plastic corp and their full address (725 n fairbanks ave...)": [
+      "shipper: woodland plastic corp and their full address (725 n fairbanks ave...)"
+    ],
+    "consignee: brokerage & logistics and their full address (2755 kurtz st 4b...)": [
+      "consignee: brokerage & logistics and their full address (2755 kurtz st 4b...)"
+    ],
+    "bill to / payment due from: schneider electric edi / c/o cass information systems 133602 and their address (po box 67...)": [
+      "bill to / payment due from: schneider electric edi / c/o cass information systems 133602 and their address (po box 67...)"
+    ],
+    "fedex payment & inquiry addresses:": [
+      "fedex payment & inquiry addresses:"
+    ],
+    "dept ch po box 10306 palatine il 60055-0306": [
+      "dept ch po box 10306 palatine il 60055-0306"
+    ],
+    "2200 forward dr harrison ar 72602-0840": [
+      "2200 forward dr harrison ar 72602-0840"
+    ],
+    "email: customerexperience@fedex.com": [
+      "email: customerexperience@fedex.com"
+    ],
+    "phone: 870 741 9070": [
+      "phone: 870 741 9070"
+    ],
+    "fax: 870 391-5523": [
+      "fax: 870 391-5523"
+    ],
+    "toll-free: 866 393 4585": [
+      "toll-free: 866 393 4585"
+    ],
+    "all monetary values:": [
+      "all monetary values:"
+    ],
+    "total amount due: $6,108.15": [
+      "total amount due: $6,108.15"
+    ],
+    "total charges in table: $6,000.00, $108.15": [
+      "total charges in table: $6,000.00, $108.15"
+    ],
+    "ship date / invoice date: 03/28/2025 / 04/09/2025": [
+      "ship date / invoice date: 03/28/2025 / 04/09/2025"
+    ],
+    "payment due date: 04/24/2025": [
+      "payment due date: 04/24/2025"
+    ],
+    "shipment specifics: this is commercially sensitive data.": [
+      "shipment specifics: this is commercially sensitive data."
+    ],
+    "entire description block: this includes the nmfc code, all charge descriptions, fuel surcharges, mileage details, and pricing notes.": [
+      "entire description block: this includes the nmfc code, all charge descriptions, fuel surcharges, mileage details, and pricing notes."
+    ],
+    "pieces: 648": [
+      "pieces: 648"
+    ],
+    "weight (wtlbs): 11,820": [
+      "weight (wtlbs): 11,820"
+    ],
+    "class: 070": [
+      "class: 070"
+    ],
+    "rate: flat": [
+      "rate: flat"
+    ],
+    "payment & service terms:": [
+      "payment & service terms:"
+    ],
+    "prepaid": [
+      "prepaid"
+    ],
+    "fxfe priority": [
+      "fxfe priority"
+    ],
+    "barcode on the right side of the remittance advice.": [
+      "barcode on the right side of the remittance advice."
+    ],
+    "machine-readable lines at the very bottom:": [
+      "machine-readable lines at the very bottom:"
+    ],
+    "6386880500 000000610815 04152025 4": [
+      "6386880500 000000610815 04152025 4"
+    ],
+    "1104-02-00-0000989-0005-0008506": [
+      "1104-02-00-0000989-0005-0008506"
+    ],
+    "origin / destination codes: elh / otm": [
+      "origin / destination codes: elh / otm"
+    ],
+    "file name: 38552141.png": [
+      "file name: 38552141.png"
+    ],
+    "highly sensitive information & ids": [
+      "highly sensitive information & ids"
+    ],
+    "unique identifiers: these are specific to this transaction.": [
+      "unique identifiers: these are specific to this transaction."
+    ],
+    "freight bill no: i457445745": [
+      "freight bill no: i457445745"
+    ],
+    "bill of lading no: none (though it says \"none\", it's best practice to mask this field)": [
+      "bill of lading no: none (though it says \"none\", it's best practice to mask this field)"
+    ],
+    "customer & internal codes:": [
+      "customer & internal codes:"
+    ],
+    "customer code: p0028v": [
+      "customer code: p0028v"
+    ],
+    "shipper/consignee codes: cnc183, par129": [
+      "shipper/consignee codes: cnc183, par129"
+    ],
+    "document id (at the top right): gl_inv00555_000140 us-043-000000162": [
+      "document id (at the top right): gl_inv00555_000140 us-043-000000162"
+    ],
+    "shipper: cnc precision and their address (2260 industrial cir...)": [
+      "shipper: cnc precision and their address (2260 industrial cir...)"
+    ],
+    "consignee: parker hannifin and their address (1290 waterville monclova rd...)": [
+      "consignee: parker hannifin and their address (1290 waterville monclova rd...)"
+    ],
+    "remit to address: po box 10020, port william oh 45164-2000": [
+      "remit to address: po box 10020, port william oh 45164-2000"
+    ],
+    "bill to party (at bottom left): parker hannifin / cass and their address (po box 67, saint louis...)": [
+      "bill to party (at bottom left): parker hannifin / cass and their address (po box 67, saint louis...)"
+    ],
+    "r+l carriers addresses: po box 271 | wilmington, ohio 45177-0271 and 600 gillam rd...": [
+      "r+l carriers addresses: po box 271 | wilmington, ohio 45177-0271 and 600 gillam rd..."
+    ],
+    "phone numbers: 937-382-1494, 800-543-5589": [
+      "phone numbers: 937-382-1494, 800-543-5589"
+    ],
+    "website: www.gorlc.com": [
+      "website: www.gorlc.com"
+    ],
+    "pay this amount: $85.57": [
+      "pay this amount: $85.57"
+    ],
+    "rate: 50.00, minimum, .1200": [
+      "rate: 50.00, minimum, .1200"
+    ],
+    "amount: 76.40, 9.17": [
+      "amount: 76.40, 9.17"
+    ],
+    "shipment specifics: this information is commercially sensitive.": [
+      "shipment specifics: this information is commercially sensitive."
+    ],
+    "date: 04/07/25": [
+      "date: 04/07/25"
+    ],
+    "description of articles: steel fittings, fuel surcharge, 1 skd": [
+      "description of articles: steel fittings, fuel surcharge, 1 skd"
+    ],
+    "tariff codes: czr9901, c50": [
+      "tariff codes: czr9901, c50"
+    ],
+    "weight: 91": [
+      "weight: 91"
+    ],
+    "pieces: 1": [
+      "pieces: 1"
+    ],
+    "payment & credit card information:": [
+      "payment & credit card information:"
+    ],
+    "the card number, exp. date, and signature fields on the remittance stub should be masked.": [
+      "the card number, exp. date, and signature fields on the remittance stub should be masked."
+    ],
+    "all barcodes, including the qr code.": [
+      "all barcodes, including the qr code."
+    ],
+    "machine-readable lines:": [
+      "machine-readable lines:"
+    ],
+    "the numbers below the barcodes (e.g., 000322 000000162).": [
+      "the numbers below the barcodes (e.g., 000322 000000162)."
+    ],
+    "the line at the very bottom of the page: 73 52 53 744574 53 000008557 9": [
+      "the line at the very bottom of the page: 73 52 53 744574 53 000008557 9"
+    ],
+    "file name: 38552148.png": [
+      "file name: 38552148.png"
+    ],
+    "freight bill / pro number: 28510506": [
+      "freight bill / pro number: 28510506"
+    ],
+    "shipper bl number: 31002324007": [
+      "shipper bl number: 31002324007"
+    ],
+    "po number: ps03001080": [
+      "po number: ps03001080"
+    ],
+    "shipper reference number: 821802918": [
+      "shipper reference number: 821802918"
+    ],
+    "account & customer numbers:": [
+      "account & customer numbers:"
+    ],
+    "shipper / consignee account numbers: 2790343 and 3862705": [
+      "shipper / consignee account numbers: 2790343 and 3862705"
+    ],
+    "consignee: cape electrical supply and their address (3245 griffith rd...)": [
+      "consignee: cape electrical supply and their address (3245 griffith rd...)"
+    ],
+    "line item amounts: $105.46, $78.69, $8.94, $193.09": [
+      "line item amounts: $105.46, $78.69, $8.94, $193.09"
+    ],
+    "charges: $184.15": [
+      "charges: $184.15"
+    ],
+    "discount: $119.14": [
+      "discount: $119.14"
+    ],
+    "other charges: $8.94": [
+      "other charges: $8.94"
+    ],
+    "pay this amount / invoice amount: $73.95": [
+      "pay this amount / invoice amount: $73.95"
+    ],
+    "entire description block: including all nmfc# codes (03160 sub 9, 01500 sub 4), skid circuit breakers..., etc.": [
+      "entire description block: including all nmfc# codes (03160 sub 9, 01500 sub 4), skid circuit breakers..., etc."
+    ],
+    "weight: 70, 227": [
+      "weight: 70, 227"
+    ],
+    "rate: 81.12": [
+      "rate: 81.12"
+    ],
+    "machine-readable line below the bill to address: e0080 10765 e114139830142 s2 p1670812 0129 0168.": [
+      "machine-readable line below the bill to address: e0080 10765 e114139830142 s2 p1670812 0129 0168."
+    ],
+    "tracking codes at the bottom left: 0129 0168.": [
+      "tracking codes at the bottom left: 0129 0168."
+    ],
+    "file name: 38552159.png": [
+      "file name: 38552159.png"
+    ],
+    "freight bill / pro number: 28510504": [
+      "freight bill / pro number: 28510504"
+    ],
+    "shipper bl number: 31002324005": [
+      "shipper bl number: 31002324005"
+    ],
+    "po number: p2267952": [
+      "po number: p2267952"
+    ],
+    "shipper reference number: 821803083": [
+      "shipper reference number: 821803083"
+    ],
+    "shipper / consignee account numbers: 2790343 and 9999035": [
+      "shipper / consignee account numbers: 2790343 and 9999035"
+    ],
+    "consignee: wholesale electric supply co i and their address (1060 w elm st...)": [
+      "consignee: wholesale electric supply co i and their address (1060 w elm st...)"
+    ],
+    "line item amounts: $360.31, $10.60, $370.91": [
+      "line item amounts: $360.31, $10.60, $370.91"
+    ],
+    "charges: $360.31": [
+      "charges: $360.31"
+    ],
+    "discount: $283.20": [
+      "discount: $283.20"
+    ],
+    "other charges: $10.60": [
+      "other charges: $10.60"
+    ],
+    "pay this amount / invoice amount: $87.71": [
+      "pay this amount / invoice amount: $87.71"
+    ],
+    "weight: 533": [
+      "weight: 533"
+    ],
+    "rate: 67.60": [
+      "rate: 67.60"
+    ],
+    "machine-readable line below the bill to address: e0085 10766 e114139830138 s2 p1670812 0127 0168.": [
+      "machine-readable line below the bill to address: e0085 10766 e114139830138 s2 p1670812 0127 0168."
+    ],
+    "tracking codes at the bottom left: 0127 0168.": [
+      "tracking codes at the bottom left: 0127 0168."
+    ],
+    "file name: 38552162.png": [
+      "file name: 38552162.png"
+    ],
+    "personal / contact information (mask with high priority)": [
+      "personal / contact information (mask with high priority)"
+    ],
+    "contact phone numbers:": [
+      "contact phone numbers:"
+    ],
+    "1-800-755-2728": [
+      "1-800-755-2728"
+    ],
+    "419-333-3876 (poc - point of contact)": [
+      "419-333-3876 (poc - point of contact)"
+    ],
+    "800-774-6886": [
+      "800-774-6886"
+    ],
+    "email:": [
+      "email:"
+    ],
+    "ltlccg@xpo.com": [
+      "ltlccg@xpo.com"
+    ],
+    "highly sensitive information": [
+      "highly sensitive information"
+    ],
+    "bank account details:": [
+      "bank account details:"
+    ],
+    "customer number:": [
+      "customer number:"
+    ],
+    "sn#: 902818622": [
+      "sn#: 902818622"
+    ],
+    "company names:": [
+      "company names:"
+    ],
+    "shipper: chemtall inc": [
+      "shipper: chemtall inc"
+    ],
+    "consignee: city of fremont, oh": [
+      "consignee: city of fremont, oh"
+    ],
+    "bill to: snf holding company / cass information systems inc": [
+      "bill to: snf holding company / cass information systems inc"
+    ],
+    "customer name: mauser apackaging": [
+      "customer name: mauser apackaging"
+    ],
+    "addresses:": [
+      "addresses:"
+    ],
+    "po box 982020, n richland hills, tx 76182": [
+      "po box 982020, n richland hills, tx 76182"
+    ],
+    "po box 67, saint louis, mo 63166-0067": [
+      "po box 67, saint louis, mo 63166-0067"
+    ],
+    "chemical plant rd, riceboro, ga, 3132d": [
+      "chemical plant rd, riceboro, ga, 3132d"
+    ],
+    "1019 sand road, fremont, oh, 43420": [
+      "1019 sand road, fremont, oh, 43420"
+    ],
+    "po box 660006, dallas, tx 75266-0006": [
+      "po box 660006, dallas, tx 75266-0006"
+    ],
+    "ltl invoice#: 584-493313": [
+      "ltl invoice#: 584-493313"
+    ],
+    "charges: $3,378.15": [
+      "charges: $3,378.15"
+    ],
+    "discount: -$3,134.92": [
+      "discount: -$3,134.92"
+    ],
+    "surcharge: $72.97": [
+      "surcharge: $72.97"
+    ],
+    "other charges: $50.00": [
+      "other charges: $50.00"
+    ],
+    "total due: us $366.20": [
+      "total due: us $366.20"
+    ],
+    "shipment date: 03/25/2025": [
+      "shipment date: 03/25/2025"
+    ],
+    "payment due date: 04/27/2025": [
+      "payment due date: 04/27/2025"
+    ],
+    "shipment specifics:": [
+      "shipment specifics:"
+    ],
+    "description of articles: plt resin compound 46030-0 class 55, apt appointment, etc.": [
+      "description of articles: plt resin compound 46030-0 class 55, apt appointment, etc."
+    ],
+    "fuel surcharge percentage: 20.00%": [
+      "fuel surcharge percentage: 20.00%"
+    ],
+    "weight: 2,414 lbs": [
+      "weight: 2,414 lbs"
+    ],
+    "rate: $139.94": [
+      "rate: $139.94"
+    ],
+    "total distance: 627 mi": [
+      "total distance: 627 mi"
+    ],
+    "delivery hours: 7am-2pm mon-fri": [
+      "delivery hours: 7am-2pm mon-fri"
+    ],
+    "584493313 0036620 8": [
+      "584493313 0036620 8"
+    ],
+    "22 8 sr 3 430 s0022 i0559 d4388257102 s3 p4266540 0019 0037": [
+      "22 8 sr 3 430 s0022 i0559 d4388257102 s3 p4266540 0019 0037"
+    ],
+    "internal customer codes: 11 snpa, 12 snfhol, 6y dryvan, 93 010": [
+      "internal customer codes: 11 snpa, 12 snfhol, 6y dryvan, 93 010"
+    ],
+    "file name: 38552163.png": [
+      "file name: 38552163.png"
+    ],
+    "unique identifiers: these are specific to this transaction and the parties involved.": [
+      "unique identifiers: these are specific to this transaction and the parties involved."
+    ],
+    "freight bill no: i405554787": [
+      "freight bill no: i405554787"
+    ],
+    "bill of lading no: 97930": [
+      "bill of lading no: 97930"
+    ],
+    "shipper# (in description): 797930": [
+      "shipper# (in description): 797930"
+    ],
+    "po # (in description): 65305 63213": [
+      "po # (in description): 65305 63213"
+    ],
+    "consignee codes: acm150, roym12": [
+      "consignee codes: acm150, roym12"
+    ],
+    "document id (at the top right): gl_inv00555_000140 us-023-000000162": [
+      "document id (at the top right): gl_inv00555_000140 us-023-000000162"
+    ],
+    "company names & addresses:": [
+      "company names & addresses:"
+    ],
+    "shipper: acme foundry inc and their address (2002 spruce st...)": [
+      "shipper: acme foundry inc and their address (2002 spruce st...)"
+    ],
+    "consignee: roy metal finishing and their address (120 mcdougall ct...)": [
+      "consignee: roy metal finishing and their address (120 mcdougall ct...)"
+    ],
+    "bill to/remit from: parker hannifin / cass and their address (po box 67, saint louis...)": [
+      "bill to/remit from: parker hannifin / cass and their address (po box 67, saint louis...)"
+    ],
+    "remit payment address: po box 10020, port william oh 45164-2000": [
+      "remit payment address: po box 10020, port william oh 45164-2000"
+    ],
+    "pay this amount: $451.68": [
+      "pay this amount: $451.68"
+    ],
+    "line item amounts: $874.03, $173.47, $1047.50, $43.39": [
+      "line item amounts: $874.03, $173.47, $1047.50, $43.39"
+    ],
+    "discount: -$639.21": [
+      "discount: -$639.21"
+    ],
+    "rate: $20.95, .615, .1200": [
+      "rate: $20.95, .615, .1200"
+    ],
+    "date: 04/03/25": [
+      "date: 04/03/25"
+    ],
+    "description of articles: ci castings, fuel surcharge, etc.": [
+      "description of articles: ci castings, fuel surcharge, etc."
+    ],
+    "weight: 4172, 828, 5000": [
+      "weight: 4172, 828, 5000"
+    ],
+    "pieces: 3": [
+      "pieces: 3"
+    ],
+    "payment information:": [
+      "payment information:"
+    ],
+    "the card number, exp. date, and signature fields on the remittance stub.": [
+      "the card number, exp. date, and signature fields on the remittance stub."
+    ],
+    "the numbers below the barcodes (e.g., 000312 000000162).": [
+      "the numbers below the barcodes (e.g., 000312 000000162)."
+    ],
+    "the line at the very bottom of the page: 73 52 48 555478 55 0000045168 9": [
+      "the line at the very bottom of the page: 73 52 48 555478 55 0000045168 9"
+    ],
+    "file name: 38552196.png": [
+      "file name: 38552196.png"
+    ],
+    "freight bill / pro number: 28510500": [
+      "freight bill / pro number: 28510500"
+    ],
+    "shipper bl number: 31002324001": [
+      "shipper bl number: 31002324001"
+    ],
+    "po number: 4505811662": [
+      "po number: 4505811662"
+    ],
+    "shipper reference number: 821802560": [
+      "shipper reference number: 821802560"
+    ],
+    "shipper / consignee account numbers: 2790343 and 0079087": [
+      "shipper / consignee account numbers: 2790343 and 0079087"
+    ],
+    "consignee: border states electric and their address (9450 zachary ln n...)": [
+      "consignee: border states electric and their address (9450 zachary ln n...)"
+    ],
+    "line item amounts: $361.41, $38.62, $76.76, $12.65, $489.44": [
+      "line item amounts: $361.41, $38.62, $76.76, $12.65, $489.44"
+    ],
+    "charges: $476.79": [
+      "charges: $476.79"
+    ],
+    "discount: $384.77 and the number 8070": [
+      "discount: $384.77 and the number 8070"
+    ],
+    "other charges: $12.65": [
+      "other charges: $12.65"
+    ],
+    "pay this amount / invoice amount: $104.67": [
+      "pay this amount / invoice amount: $104.67"
+    ],
+    "entire description block: including all nmfc# codes (03160 sub 9, 51000 sub 2), skid circuit breakers..., etc.": [
+      "entire description block: including all nmfc# codes (03160 sub 9, 51000 sub 2), skid circuit breakers..., etc."
+    ],
+    "weight: 758, 161, 839": [
+      "weight: 758, 161, 839"
+    ],
+    "rate: 47.68": [
+      "rate: 47.68"
+    ],
+    "machine-readable line below the bill to address: e0025 10762 e114139830130 s2 p1670812 0123 0168.": [
+      "machine-readable line below the bill to address: e0025 10762 e114139830130 s2 p1670812 0123 0168."
+    ],
+    "tracking codes at the bottom left: 0123 0168.": [
+      "tracking codes at the bottom left: 0123 0168."
+    ],
+    "file name: 38552198.png": [
+      "file name: 38552198.png"
+    ],
+    "freight bill no: i369588645": [
+      "freight bill no: i369588645"
+    ],
+    "bill of lading no: 0101044045": [
+      "bill of lading no: 0101044045"
+    ],
+    "edi # (in description): 5737": [
+      "edi # (in description): 5737"
+    ],
+    "customer order# (in description): 5737": [
+      "customer order# (in description): 5737"
+    ],
+    "consignee codes: p01ig6, gato70": [
+      "consignee codes: p01ig6, gato70"
+    ],
+    "document id (at the top right): gl_inv00555_000140 us-019-000000162": [
+      "document id (at the top right): gl_inv00555_000140 us-019-000000162"
+    ],
+    "shipper: parker hannifin and their address (5920 highway 169 n...)": [
+      "shipper: parker hannifin and their address (5920 highway 169 n...)"
+    ],
+    "consignee: gator tail and their address (306 ed broussard rd...)": [
+      "consignee: gator tail and their address (306 ed broussard rd...)"
+    ],
+    "pay this amount: $106.29": [
+      "pay this amount: $106.29"
+    ],
+    "line item amounts: $144.61, $11.39": [
+      "line item amounts: $144.61, $11.39"
+    ],
+    "discount: -$49.71": [
+      "discount: -$49.71"
+    ],
+    "rate: $66.95, $49.71, .1200": [
+      "rate: $66.95, $49.71, .1200"
+    ],
+    "description of articles: motor, fuel surcharge, sub 0000-9002, etc.": [
+      "description of articles: motor, fuel surcharge, sub 0000-9002, etc."
+    ],
+    "tariff codes: czr9901, c60": [
+      "tariff codes: czr9901, c60"
+    ],
+    "weight: 216": [
+      "weight: 216"
+    ],
+    "the numbers below the barcodes (e.g., 000310 000000162).": [
+      "the numbers below the barcodes (e.g., 000310 000000162)."
+    ],
+    "the line at the very bottom of the page: 73 51 54 958864 53 0000010629 9.": [
+      "the line at the very bottom of the page: 73 51 54 958864 53 0000010629 9."
+    ],
+    "file name: 38552199.png": [
+      "file name: 38552199.png"
+    ],
+    "personal information (mask with highest priority)": [
+      "personal information (mask with highest priority)"
+    ],
+    "contact person details:": [
+      "contact person details:"
+    ],
+    "name: gary skaggs": [
+      "name: gary skaggs"
+    ],
+    "phone number: 573-663-8683": [
+      "phone number: 573-663-8683"
+    ],
+    "other contact details:": [
+      "other contact details:"
+    ],
+    "phone: 800-774-6886 and 1-800-755-2728": [
+      "phone: 800-774-6886 and 1-800-755-2728"
+    ],
+    "sn#: 902645751": [
+      "sn#: 902645751"
+    ],
+    "shipper: chemtall inc and their address (chemical plant rd...)": [
+      "shipper: chemtall inc and their address (chemical plant rd...)"
+    ],
+    "consignee: doe run co warehouse 19 / sweetwater mine and their address (3882 sweetwater mine rd...)": [
+      "consignee: doe run co warehouse 19 / sweetwater mine and their address (3882 sweetwater mine rd...)"
+    ],
+    "bill to: snf holding company / cass information systems inc and their address (po box 67...)": [
+      "bill to: snf holding company / cass information systems inc and their address (po box 67...)"
+    ],
+    "xpo addresses: po box 982020, n richland hills... and po box 660006, dallas...": [
+      "xpo addresses: po box 982020, n richland hills... and po box 660006, dallas..."
+    ],
+    "other company name: packaging solutions": [
+      "other company name: packaging solutions"
+    ],
+    "ltl invoice#: 584-493151": [
+      "ltl invoice#: 584-493151"
+    ],
+    "charges: $3,573.68": [
+      "charges: $3,573.68"
+    ],
+    "discount: -$3,387.17": [
+      "discount: -$3,387.17"
+    ],
+    "surcharges/fees: $56.42, $50.00, $55.75": [
+      "surcharges/fees: $56.42, $50.00, $55.75"
+    ],
+    "total due: us $348.68": [
+      "total due: us $348.68"
+    ],
+    "shipment date: 03/21/2025": [
+      "shipment date: 03/21/2025"
+    ],
+    "description of articles: plt resin compound 46030-0 class 55, etc.": [
+      "description of articles: plt resin compound 46030-0 class 55, etc."
+    ],
+    "fuel surcharge percentage: 20.29%": [
+      "fuel surcharge percentage: 20.29%"
+    ],
+    "weight: 2,423 lbs": [
+      "weight: 2,423 lbs"
+    ],
+    "rate: $147.49": [
+      "rate: $147.49"
+    ],
+    "total distance: 623 mi": [
+      "total distance: 623 mi"
+    ],
+    "delivery hours: 7am to 3pm mon thru fri": [
+      "delivery hours: 7am to 3pm mon thru fri"
+    ],
+    "584493151 0034868 8": [
+      "584493151 0034868 8"
+    ],
+    "22 8 sp 3 430 e0022 i0552 d4388256268 s3 p4266540 0012 0037": [
+      "22 8 sp 3 430 e0022 i0552 d4388256268 s3 p4266540 0012 0037"
+    ],
+    "file name: 38552224.png": [
+      "file name: 38552224.png"
+    ],
+    "freight bill no: i327611538": [
+      "freight bill no: i327611538"
+    ],
+    "po # (in description): 59530": [
+      "po # (in description): 59530"
+    ],
+    "bill of lading no: none (field should be masked)": [
+      "bill of lading no: none (field should be masked)"
+    ],
+    "consignee/shipper codes: farp29, purb43": [
+      "consignee/shipper codes: farp29, purb43"
+    ],
+    "document id (at the top right): gl_inv00555_000140 us-015-000000162": [
+      "document id (at the top right): gl_inv00555_000140 us-015-000000162"
+    ],
+    "item code (in description): 568909": [
+      "item code (in description): 568909"
+    ],
+    "shipper: far packaging co inc and their address (2505 air park dr...)": [
+      "shipper: far packaging co inc and their address (2505 air park dr...)"
+    ],
+    "consignee: parker hannifin and their address (8425 triad dr...)": [
+      "consignee: parker hannifin and their address (8425 triad dr...)"
+    ],
+    "pay this amount: $174.94": [
+      "pay this amount: $174.94"
+    ],
+    "line item amounts: $405.72, $18.74": [
+      "line item amounts: $405.72, $18.74"
+    ],
+    "discount: -$249.52": [
+      "discount: -$249.52"
+    ],
+    "rate: $40.41, .615, .1200": [
+      "rate: $40.41, .615, .1200"
+    ],
+    "entire description block: this includes stack of empty wood boxes, all dimensions (1 pc 45.00 x 41.00...), cubic feet calculations, and other charge details.": [
+      "entire description block: this includes stack of empty wood boxes, all dimensions (1 pc 45.00 x 41.00...), cubic feet calculations, and other charge details."
+    ],
+    "tariff codes: czr9901, c175": [
+      "tariff codes: czr9901, c175"
+    ],
+    "weight: 1004": [
+      "weight: 1004"
+    ],
+    "the numbers below the barcodes (e.g., 000308 000000162).": [
+      "the numbers below the barcodes (e.g., 000308 000000162)."
+    ],
+    "the line at the very bottom of the page: 73 51 50 761153 56 0000017494 9": [
+      "the line at the very bottom of the page: 73 51 50 761153 56 0000017494 9"
+    ],
+    "file name: 38552225.png": [
+      "file name: 38552225.png"
+    ],
+    "name: blake perkins": [
+      "name: blake perkins"
+    ],
+    "email: blake.perkins@new-indycb.com": [
+      "email: blake.perkins@new-indycb.com"
+    ],
+    "phone number: 805-271-7203": [
+      "phone number: 805-271-7203"
+    ],
+    "phone: 1-800-755-2728, 1-800-774-6886": [
+      "phone: 1-800-755-2728, 1-800-774-6886"
+    ],
+    "sn#: 901460838": [
+      "sn#: 901460838"
+    ],
+    "consignee: new indy containerboard and their address (5930 perkins rd...)": [
+      "consignee: new indy containerboard and their address (5930 perkins rd...)"
+    ],
+    "other associated names/locations: wal-m4 williams, assoc - 80-405 east 78th street bloomington, mn 55420, mauser packaging solutions": [
+      "other associated names/locations: wal-m4 williams, assoc - 80-405 east 78th street bloomington, mn 55420, mauser packaging solutions"
+    ],
+    "ltl invoice#: 584-493136": [
+      "ltl invoice#: 584-493136"
+    ],
+    "charges: $24,854.00": [
+      "charges: $24,854.00"
+    ],
+    "discount: -$23,636.31": [
+      "discount: -$23,636.31"
+    ],
+    "surcharges/fees: $308.40, $25.00": [
+      "surcharges/fees: $308.40, $25.00"
+    ],
+    "total due: us $1,611.25": [
+      "total due: us $1,611.25"
+    ],
+    "weight: 9,692 lbs, 10,000 lbs": [
+      "weight: 9,692 lbs, 10,000 lbs"
+    ],
+    "rate: $248.54": [
+      "rate: $248.54"
+    ],
+    "total distance: 2498 mi": [
+      "total distance: 2498 mi"
+    ],
+    "receiving hours: m-f 7am - 3:30pm": [
+      "receiving hours: m-f 7am - 3:30pm"
+    ],
+    "584493136 0161125 9": [
+      "584493136 0161125 9"
+    ],
+    "22 8 sp 3 430 e0022 i0549 d4388256028 s3 p4266540 0009 0037": [
+      "22 8 sp 3 430 e0022 i0549 d4388256028 s3 p4266540 0009 0037"
+    ],
+    "file name: 38552668.png": [
+      "file name: 38552668.png"
+    ],
+    "personal information (mask with high priority)": [
+      "personal information (mask with high priority)"
+    ],
+    "name: alan fernandez": [
+      "name: alan fernandez"
+    ],
+    "processor code: lbgott": [
+      "processor code: lbgott"
+    ],
+    "contact details:": [
+      "contact details:"
+    ],
+    "email: billing@heniff.com": [
+      "email: billing@heniff.com"
+    ],
+    "phone number: 630-230-2113": [
+      "phone number: 630-230-2113"
+    ],
+    "highly sensitive ids & reference numbers": [
+      "highly sensitive ids & reference numbers"
+    ],
+    "transaction & document ids:": [
+      "transaction & document ids:"
+    ],
+    "pro. no.: 2552868d": [
+      "pro. no.: 2552868d"
+    ],
+    "bl #: 902808932": [
+      "bl #: 902808932"
+    ],
+    "po: 4510661204": [
+      "po: 4510661204"
+    ],
+    "sid: 902808932": [
+      "sid: 902808932"
+    ],
+    "vehicle identifiers:": [
+      "vehicle identifiers:"
+    ],
+    "tractor #: 123126": [
+      "tractor #: 123126"
+    ],
+    "trailer #: 1rz97824": [
+      "trailer #: 1rz97824"
+    ],
+    "biller: heniff transportation systems, llc. and its addresses (202 carson ct... and po box 74007095...)": [
+      "biller: heniff transportation systems, llc. and its addresses (202 carson ct... and po box 74007095...)"
+    ],
+    "shipper: basf corporation and their address (1520 old stage road...)": [
+      "shipper: basf corporation and their address (1520 old stage road...)"
+    ],
+    "consignee: select chemistry and their address (4113 w industrial ave...)": [
+      "consignee: select chemistry and their address (4113 w industrial ave...)"
+    ],
+    "bill to: basf c/o cass info sys and their address (po box 17668, saint louis...)": [
+      "bill to: basf c/o cass info sys and their address (po box 17668, saint louis...)"
+    ],
+    "charges: $1,800.00, $90.00": [
+      "charges: $1,800.00, $90.00"
+    ],
+    "subtotal: $1,890.00": [
+      "subtotal: $1,890.00"
+    ],
+    "total due: us $1,890.00": [
+      "total due: us $1,890.00"
+    ],
+    "rates & quantities:": [
+      "rates & quantities:"
+    ],
+    "billing quantity: 100 flat, 1 flat": [
+      "billing quantity: 100 flat, 1 flat"
+    ],
+    "rate: $18.00 flat, $90.00 flat": [
+      "rate: $18.00 flat, $90.00 flat"
+    ],
+    "date billed: 4/21/2025": [
+      "date billed: 4/21/2025"
+    ],
+    "date shipped: 4/1/2025": [
+      "date shipped: 4/1/2025"
+    ],
+    "date delivered: 4/4/2025": [
+      "date delivered: 4/4/2025"
+    ],
+    "total due by: 05/21/25": [
+      "total due by: 05/21/25"
+    ],
+    "description: heel disposal, see contract, steaming": [
+      "description: heel disposal, see contract, steaming"
+    ],
+    "credit terms: net 30": [
+      "credit terms: net 30"
+    ],
+    "internal codes: basmausc, selmidtx, 11 basf, zz solo, basfaddt": [
+      "internal codes: basmausc, selmidtx, 11 basf, zz solo, basfaddt"
+    ],
+    "file name: 38552669.png": [
+      "file name: 38552669.png"
+    ],
+    "personal / processor information": [
+      "personal / processor information"
+    ],
+    "processor code: knickman": [
+      "processor code: knickman"
+    ],
+    "pro. no.: 2499961c": [
+      "pro. no.: 2499961c"
+    ],
+    "bl #: 808488094": [
+      "bl #: 808488094"
+    ],
+    "sid: 808488094": [
+      "sid: 808488094"
+    ],
+    "service record number: 34839236 quala wash": [
+      "service record number: 34839236 quala wash"
+    ],
+    "tractor #: 1445": [
+      "tractor #: 1445"
+    ],
+    "trailer #: tc/67466": [
+      "trailer #: tc/67466"
+    ],
+    "shipper: b a s f corp and their address (4201 evonik rd...)": [
+      "shipper: b a s f corp and their address (4201 evonik rd...)"
+    ],
+    "consignee: basf c/o delta chemical and their address (3950 hwy 30...)": [
+      "consignee: basf c/o delta chemical and their address (3950 hwy 30...)"
+    ],
+    "charges: $85.00": [
+      "charges: $85.00"
+    ],
+    "subtotal: $85.00": [
+      "subtotal: $85.00"
+    ],
+    "total due: us $85.00": [
+      "total due: us $85.00"
+    ],
+    "billing quantity: 1 flat": [
+      "billing quantity: 1 flat"
+    ],
+    "rate: $85.00 flat": [
+      "rate: $85.00 flat"
+    ],
+    "date shipped: 1/25/2025": [
+      "date shipped: 1/25/2025"
+    ],
+    "date delivered: 1/27/2025": [
+      "date delivered: 1/27/2025"
+    ],
+    "service date: 01/25/2025": [
+      "service date: 01/25/2025"
+    ],
+    "total due by: 05/20/25": [
+      "total due by: 05/20/25"
+    ],
+    "description: prep charge": [
+      "description: prep charge"
+    ],
+    "internal codes: bastheal, bassaila, 11 basf, zz solo, basfaddt": [
+      "internal codes: bastheal, bassaila, 11 basf, zz solo, basfaddt"
+    ],
+    "ufile name: 38552672.png": [
+      "ufile name: 38552672.png"
+    ],
+    "pro. no.: 2554594b": [
+      "pro. no.: 2554594b"
+    ],
+    "bl #: 902984079": [
+      "bl #: 902984079"
+    ],
+    "po: 4501338919": [
+      "po: 4501338919"
+    ],
+    "sid: 902984079": [
+      "sid: 902984079"
+    ],
+    "tractor #: 6275": [
+      "tractor #: 6275"
+    ],
+    "trailer #: 1rz97227": [
+      "trailer #: 1rz97227"
+    ],
+    "shipper: imtt / c/o basf and their address (8112 hwy 75...)": [
+      "shipper: imtt / c/o basf and their address (8112 hwy 75...)"
+    ],
+    "consignee: bostik inc and their address (211 boston st...)": [
+      "consignee: bostik inc and their address (211 boston st...)"
+    ],
+    "charges: $450.00, $560.00": [
+      "charges: $450.00, $560.00"
+    ],
+    "subtotal: $1,010.00": [
+      "subtotal: $1,010.00"
+    ],
+    "total due: us $1,010.00": [
+      "total due: us $1,010.00"
+    ],
+    "billing quantity: 5 flat, 5 us dollars": [
+      "billing quantity: 5 flat, 5 us dollars"
+    ],
+    "rate: $90.00 flat, $112.00 flat": [
+      "rate: $90.00 flat, $112.00 flat"
+    ],
+    "date delivered: 4/13/2025": [
+      "date delivered: 4/13/2025"
+    ],
+    "total due by: 05/18/25": [
+      "total due by: 05/18/25"
+    ],
+    "description: steaming, steaming- driver delay": [
+      "description: steaming, steaming- driver delay"
+    ],
+    "internal codes: imtgeila, bosmidma, 11 basf, zz solo, basfaddt": [
+      "internal codes: imtgeila, bosmidma, 11 basf, zz solo, basfaddt"
+    ],
+    "file name: 38552675.png": [
+      "file name: 38552675.png"
+    ],
+    "pro. no.: 2554604b": [
+      "pro. no.: 2554604b"
+    ],
+    "bl #: 902984708": [
+      "bl #: 902984708"
+    ],
+    "sid: 902984708": [
+      "sid: 902984708"
+    ],
+    "tractor #: 6563": [
+      "tractor #: 6563"
+    ],
+    "trailer #: 1ry94298": [
+      "trailer #: 1ry94298"
+    ],
+    "shipper: basf corp. and their address (1609 biddle avenue...)": [
+      "shipper: basf corp. and their address (1609 biddle avenue...)"
+    ],
+    "consignee: heniff transportation and their address (495 ne oneil way...)": [
+      "consignee: heniff transportation and their address (495 ne oneil way...)"
+    ],
+    "charges: $1,400.00": [
+      "charges: $1,400.00"
+    ],
+    "subtotal: $1,400.00": [
+      "subtotal: $1,400.00"
+    ],
+    "total due: us $1,400.00": [
+      "total due: us $1,400.00"
+    ],
+    "billing quantity: 12.5 hours": [
+      "billing quantity: 12.5 hours"
+    ],
+    "rate: $112.00 $/hour": [
+      "rate: $112.00 $/hour"
+    ],
+    "date shipped: 4/14/2025": [
+      "date shipped: 4/14/2025"
+    ],
+    "date delivered: 4/18/2025": [
+      "date delivered: 4/18/2025"
+    ],
+    "description: basf corp.,, loading demurrage": [
+      "description: basf corp.,, loading demurrage"
+    ],
+    "internal codes: baswyami, henredor, 11 basf, zz solo, basfaddt": [
+      "internal codes: baswyami, henredor, 11 basf, zz solo, basfaddt"
+    ],
+    "file name: 38552678.png": [
+      "file name: 38552678.png"
+    ],
+    "personal information": [
+      "personal information"
+    ],
+    "name: luis rodriguez": [
+      "name: luis rodriguez"
+    ],
+    "pro. no.: 2558441d": [
+      "pro. no.: 2558441d"
+    ],
+    "bl #: 903057748": [
+      "bl #: 903057748"
+    ],
+    "po: 311016062": [
+      "po: 311016062"
+    ],
+    "sid: 903057748": [
+      "sid: 903057748"
+    ],
+    "tractor #: 818306": [
+      "tractor #: 818306"
+    ],
+    "trailer #: 1rg13902": [
+      "trailer #: 1rg13902"
+    ],
+    "shipper: basf corp and their address (2656 e 117th street...)": [
+      "shipper: basf corp and their address (2656 e 117th street...)"
+    ],
+    "consignee: h.b. fuller company and their address (2727 kinney avenue...)": [
+      "consignee: h.b. fuller company and their address (2727 kinney avenue...)"
+    ],
+    "charges: $180.00": [
+      "charges: $180.00"
+    ],
+    "subtotal: $180.00": [
+      "subtotal: $180.00"
+    ],
+    "total due: us $180.00": [
+      "total due: us $180.00"
+    ],
+    "billing quantity: 15 flat": [
+      "billing quantity: 15 flat"
+    ],
+    "rate: $12.00 flat": [
+      "rate: $12.00 flat"
+    ],
+    "date shipped: 4/11/2025": [
+      "date shipped: 4/11/2025"
+    ],
+    "date delivered: 4/11/2025": [
+      "date delivered: 4/11/2025"
+    ],
+    "description: heel disposal": [
+      "description: heel disposal"
+    ],
+    "internal codes: baschi12, hbfgrami, 11 basf, zz solo, basfaddt": [
+      "internal codes: baschi12, hbfgrami, 11 basf, zz solo, basfaddt"
+    ],
+    "file name: 38552683.png": [
+      "file name: 38552683.png"
+    ],
+    "pro. no.: 2559334b": [
+      "pro. no.: 2559334b"
+    ],
+    "bl #: 903060533": [
+      "bl #: 903060533"
+    ],
+    "sid: 903060533": [
+      "sid: 903060533"
+    ],
+    "tractor #: 1162": [
+      "tractor #: 1162"
+    ],
+    "trailer #: 1ry95546": [
+      "trailer #: 1ry95546"
+    ],
+    "consignee: covestro llc and their address (17595 energy road...)": [
+      "consignee: covestro llc and their address (17595 energy road...)"
+    ],
+    "charges: $1,020.00, $200.00, $34.28": [
+      "charges: $1,020.00, $200.00, $34.28"
+    ],
+    "subtotal: $1,254.28": [
+      "subtotal: $1,254.28"
+    ],
+    "total due: us $1,254.28": [
+      "total due: us $1,254.28"
+    ],
+    "billing quantity: 17 flat, 1 flat, 59 flat": [
+      "billing quantity: 17 flat, 1 flat, 59 flat"
+    ],
+    "rate: $60.00 flat, $200.00 flat, $0.581 flat": [
+      "rate: $60.00 flat, $200.00 flat, $0.581 flat"
+    ],
+    "date delivered: 4/16/2025": [
+      "date delivered: 4/16/2025"
+    ],
+    "description: steaming, steaming - out of route miles, fuel surcharge (flat)": [
+      "description: steaming, steaming - out of route miles, fuel surcharge (flat)"
+    ],
+    "internal codes: imtgeila, covprowv, 11 basf, zz solo, basfaddt": [
+      "internal codes: imtgeila, covprowv, 11 basf, zz solo, basfaddt"
+    ],
+    "file name: 38552703.png": [
+      "file name: 38552703.png"
+    ],
+    "pro. no.: 2312t45d": [
+      "pro. no.: 2312t45d"
+    ],
+    "bl #: 903049866": [
+      "bl #: 903049866"
+    ],
+    "po: 2415078590": [
+      "po: 2415078590"
+    ],
+    "ref: 903049866": [
+      "ref: 903049866"
+    ],
+    "tractor #: 8607": [
+      "tractor #: 8607"
+    ],
+    "trailer #: 70239rb": [
+      "trailer #: 70239rb"
+    ],
+    "all line item charges: $1,055.60, $467.65, $83.58, $500.00, $1,400.00, $420.00, $1,369.00, $112.14, $1,568.00, $960.00, $1,792.00, $170.91": [
+      "all line item charges: $1,055.60, $467.65, $83.58, $500.00, $1,400.00, $420.00, $1,369.00, $112.14, $1,568.00, $960.00, $1,792.00, $170.91"
+    ],
+    "subtotal: $9,898.88": [
+      "subtotal: $9,898.88"
+    ],
+    "all billing quantities: 14 flat, 199 flat, 1 flat, 7 flat, 3.75 hours, 267 flat, 14 us dollars, 16 flat, 16 us dollars, etc.": [
+      "all billing quantities: 14 flat, 199 flat, 1 flat, 7 flat, 3.75 hours, 267 flat, 14 us dollars, 16 flat, 16 us dollars, etc."
+    ],
+    "all rates: $75.4 flat, $2.35 flat, $0.42 flat, $500.00 flat, $112.00 $/hour, etc.": [
+      "all rates: $75.4 flat, $2.35 flat, $0.42 flat, $500.00 flat, $112.00 $/hour, etc."
+    ],
+    "date shipped: 6/18/2024": [
+      "date shipped: 6/18/2024"
+    ],
+    "date delivered: 6/20/2024": [
+      "date delivered: 6/20/2024"
+    ],
+    "spotting ref dates: 6/19/24-6/26/24": [
+      "spotting ref dates: 6/19/24-6/26/24"
+    ],
+    "all descriptions: steaming, layover, redelivery, unloading demurrage, etc.": [
+      "all descriptions: steaming, layover, redelivery, unloading demurrage, etc."
+    ],
+    "file name: 38552726.png": [
+      "file name: 38552726.png"
+    ],
+    "name: sandra guel": [
+      "name: sandra guel"
+    ],
+    "pro. no.: 2562272b": [
+      "pro. no.: 2562272b"
+    ],
+    "bl #: 903066105": [
+      "bl #: 903066105"
+    ],
+    "sid: 903066105": [
+      "sid: 903066105"
+    ],
+    "tractor #: 118227": [
+      "tractor #: 118227"
+    ],
+    "trailer #: 1rg16408": [
+      "trailer #: 1rg16408"
+    ],
+    "shipper: basf and their address (602 copper road...)": [
+      "shipper: basf and their address (602 copper road...)"
+    ],
+    "consignee: american chemical services co and their address (16201 maccorkle ave...)": [
+      "consignee: american chemical services co and their address (16201 maccorkle ave...)"
+    ],
+    "charges: $84.00": [
+      "charges: $84.00"
+    ],
+    "subtotal: $84.00": [
+      "subtotal: $84.00"
+    ],
+    "total due: us $84.00": [
+      "total due: us $84.00"
+    ],
+    "billing quantity: 0.75 hours": [
+      "billing quantity: 0.75 hours"
+    ],
+    "date shipped: 4/15/2025": [
+      "date shipped: 4/15/2025"
+    ],
+    "description: basf,, loading demurrage": [
+      "description: basf,, loading demurrage"
+    ],
+    "internal codes: basfretx, amemarwv, 11 basf, zz solo, basfaddt": [
+      "internal codes: basfretx, amemarwv, 11 basf, zz solo, basfaddt"
+    ],
+    "file name: 38552750.png": [
+      "file name: 38552750.png"
+    ],
+    "pro. no.: 2565749b": [
+      "pro. no.: 2565749b"
+    ],
+    "po: 4500019139": [
+      "po: 4500019139"
+    ],
+    "ref: 903800379": [
+      "ref: 903800379"
+    ],
+    "sid: 903800379": [
+      "sid: 903800379"
+    ],
+    "tractor #: 120247": [
+      "tractor #: 120247"
+    ],
+    "trailer #: 51740": [
+      "trailer #: 51740"
+    ],
+    "shipper: basf corporation and their address (8404 river road...)": [
+      "shipper: basf corporation and their address (8404 river road...)"
+    ],
+    "consignee: procter & gamble and their address (3701 monroe hwy...)": [
+      "consignee: procter & gamble and their address (3701 monroe hwy...)"
+    ],
+    "charges: $28.00": [
+      "charges: $28.00"
+    ],
+    "subtotal: $28.00": [
+      "subtotal: $28.00"
+    ],
+    "total due: us $28.00": [
+      "total due: us $28.00"
+    ],
+    "billing quantity: 0.25 hours": [
+      "billing quantity: 0.25 hours"
+    ],
+    "date shipped: 4/17/2025": [
+      "date shipped: 4/17/2025"
+    ],
+    "description: basf corporation,, loading demurrage": [
+      "description: basf corporation,, loading demurrage"
+    ],
+    "internal codes: basgeila, profinla, 11 basf, zz solo, basfaddt": [
+      "internal codes: basgeila, profinla, 11 basf, zz solo, basfaddt"
+    ]
+  },
+  "vendors": {
+    "generic": {
+      "fields": {
+        "highly sensitive information (mask these first)": 8,
+        "bank account details: this is the most critical information to mask.": 2,
+        "routing #: 121000248": 8,
+        "account #: 4943582890": 8,
+        "swift code: wfbius6s": 8,
+        "tax & business ids:": 8,
+        "fed tax id#: 94-2904864": 8,
+        "duns#: 08-043-1663": 8,
+        "transaction & customer specific information": 2,
+        "invoice number:": 8,
+        "ltl invoice#: 177-422556 (appears in multiple places)": 2,
+        "company names & addresses: masking these prevents linking the transaction to specific entities.": 4,
+        "shipper: polydyne corp / polydynamie and their full address (10 shuffler industrial park...)": 2,
+        "consignee: ocean county utilities and their full address (501 hickory ln...)": 2,
+        "bill to: snf holding company / cass information systems inc and their full address (po box 67...)": 2,
+        "remit to address: po box 660006, dallas, tx 75266-0006": 2,
+        "customer numbers: these are unique identifiers for the customer accounts.": 2,
+        "sn#: 903515568": 2,
+        "other codes: 11 snpa, 12 snthol, 6y dryvan, 93 013": 2,
+        "contact information:": 22,
+        "phone: 1-800-755-2728": 2,
+        "email: ltlccg@xpo.com": 6,
+        "financial & shipment details": 46,
+        "all monetary values: this includes all charges, discounts, and totals.": 2,
+        "charges: $4,690.00": 2,
+        "discount: -$4,207.45": 2,
+        "surcharge: $123.00": 2,
+        "other charges: $150.00, $50.00": 2,
+        "total due: us $732.14": 2,
+        "shipment details:": 2,
+        "shipment date: 04/01/2025": 2,
+        "description of articles: plt resin compont 46030-0 class 55 (this could be commercially sensitive information about what is being traded).": 2,
+        "weight: 9,656 lbs": 2,
+        "internal and document-specific codes": 46,
+        "barcode on the left side.": 2,
+        "tracking/processing codes at the bottom of the page:": 2,
+        "177422556 0073214 6": 2,
+        "46 6 ep 2 870 e0087 i0167 d4305845003 s3 p4267713 0032 0037": 2,
+        "of course. here is a list of all the private and sensitive information you should mask in this invoice.": 2,
+        "business & account numbers: these are unique identifiers for the companies, accounts, and the transaction itself.": 2,
+        "freight bill / pro number: 28510427": 2,
+        "shipper / customer account numbers: 2790343 and 9899006": 2,
+        "shipper bl number: 310023222240": 2,
+        "po number: 2025021014522": 2,
+        "shipper reference number: 821776613": 2,
+        "customer (on remit stub): 6m27903": 10,
+        "company & location information": 44,
+        "company names & addresses: masking these prevents linking the document to the specific parties involved.": 8,
+        "sender/biller: dayton freight lines, inc and their full address (po box 1030, vandalia, oh...)": 2,
+        "bill to: square d co (des moines dock) / c/o cass information systems and their address (po box 67, saint louis, mo...)": 10,
+        "shipper: square d company drop dsm sc and their address (1101 adventureland dr...)": 6,
+        "consignee: diversified remediation control and their address (9325 winnetka ave n...)": 2,
+        "phone: (937) 264-4060": 10,
+        "all monetary values: this includes all charges, rates, and totals.": 2,
+        "charges: $96.00": 2,
+        "discount: $37.50": 2,
+        "other charges: $8.04": 4,
+        "line item amounts: $96.00, $8.04, $104.04": 2,
+        "pay this amount / invoice amount: $66.54": 4,
+        "dates:": 36,
+        "date: 02/13/2025": 2,
+        "invoice date: 02/18/2025": 2,
+        "shipment specifics: this information can be commercially sensitive.": 2,
+        "description: nmfc# 03160 sub 9, skid circuit breakers or switches...": 4,
+        "fuel surcharge percentage: 13.750%": 10,
+        "weight: 70": 2,
+        "rate: 119": 2,
+        "payment terms: prepaid net 15 days": 10,
+        "all barcodes.": 16,
+        "machine-readable line below the bill to address: e0028 10007...": 2,
+        "tracking codes at the bottom left: 0038 0168": 2,
+        "file name: 38552085.png": 2,
+        "business & account numbers: these are unique identifiers for the transaction and the companies involved.": 2,
+        "freight bill / pro number: 28510513": 2,
+        "shipper / customer account numbers: 2790343 and 0090427": 2,
+        "shipper bl number: 310023240914": 2,
+        "po number: 4505828678": 2,
+        "shipper reference number: 821802341": 2,
+        "sender/biller: dayton freight lines, inc and their full address (po box 368, vandalia, oh...)": 8,
+        "shipper: schneider electric and their address (1101 adventureland dr...)": 4,
+        "consignee: border states and their address (100 carlton st sw...)": 2,
+        "all monetary values: this includes all charges, rates, discounts, and totals.": 6,
+        "line item amounts: $253.22, $33.88, $8.04, $295.14": 2,
+        "charges: $287.10": 2,
+        "discount: $228.60": 2,
+        "date: 02/14/2025": 8,
+        "invoice date: 02/19/2025": 8,
+        "shipment specifics: this is commercially sensitive information.": 2,
+        "description: nmfc# 03160 sub 9, skid circuit breakers or switches..., rec hrs 8a-5p": 2,
+        "weight: 70, 441": 2,
+        "rate: 57.42": 2,
+        "machine-readable line below the bill to address: e006f 10765...": 2,
+        "tracking codes at the bottom left: 0138 0168": 2,
+        "account number:": 2,
+        "860847426": 2,
+        "transaction & document ids: these are unique identifiers for the shipment and invoice.": 8,
+        "freight bill number: 6386880500": 2,
+        "bill of lading number: 30107": 2,
+        "p.o. number: 1108078776": 2,
+        "company names & addresses: masking these prevents linking the transaction to the involved parties.": 2,
+        "shipper: woodland plastic corp and their full address (725 n fairbanks ave...)": 2,
+        "consignee: brokerage & logistics and their full address (2755 kurtz st 4b...)": 2,
+        "bill to / payment due from: schneider electric edi / c/o cass information systems 133602 and their address (po box 67...)": 2,
+        "fedex payment & inquiry addresses:": 2,
+        "dept ch po box 10306 palatine il 60055-0306": 2,
+        "2200 forward dr harrison ar 72602-0840": 2,
+        "email: customerexperience@fedex.com": 2,
+        "phone: 870 741 9070": 2,
+        "fax: 870 391-5523": 2,
+        "toll-free: 866 393 4585": 2,
+        "all monetary values:": 36,
+        "total amount due: $6,108.15": 2,
+        "total charges in table: $6,000.00, $108.15": 2,
+        "ship date / invoice date: 03/28/2025 / 04/09/2025": 2,
+        "payment due date: 04/24/2025": 2,
+        "shipment specifics: this is commercially sensitive data.": 2,
+        "entire description block: this includes the nmfc code, all charge descriptions, fuel surcharges, mileage details, and pricing notes.": 2,
+        "pieces: 648": 2,
+        "weight (wtlbs): 11,820": 2,
+        "class: 070": 2,
+        "rate: flat": 2,
+        "payment & service terms:": 2,
+        "prepaid": 2,
+        "fxfe priority": 2,
+        "barcode on the right side of the remittance advice.": 2,
+        "machine-readable lines at the very bottom:": 2,
+        "6386880500 000000610815 04152025 4": 2,
+        "1104-02-00-0000989-0005-0008506": 2,
+        "origin / destination codes: elh / otm": 2,
+        "file name: 38552141.png": 2,
+        "highly sensitive information & ids": 14,
+        "unique identifiers: these are specific to this transaction.": 2,
+        "freight bill no: i457445745": 2,
+        "bill of lading no: none (though it says \"none\", it's best practice to mask this field)": 2,
+        "customer & internal codes:": 8,
+        "customer code: p0028v": 8,
+        "shipper/consignee codes: cnc183, par129": 2,
+        "document id (at the top right): gl_inv00555_000140 us-043-000000162": 2,
+        "shipper: cnc precision and their address (2260 industrial cir...)": 2,
+        "consignee: parker hannifin and their address (1290 waterville monclova rd...)": 2,
+        "remit to address: po box 10020, port william oh 45164-2000": 2,
+        "bill to party (at bottom left): parker hannifin / cass and their address (po box 67, saint louis...)": 2,
+        "r+l carriers addresses: po box 271 | wilmington, ohio 45177-0271 and 600 gillam rd...": 8,
+        "phone numbers: 937-382-1494, 800-543-5589": 8,
+        "website: www.gorlc.com": 8,
+        "pay this amount: $85.57": 2,
+        "rate: 50.00, minimum, .1200": 2,
+        "amount: 76.40, 9.17": 2,
+        "shipment specifics: this information is commercially sensitive.": 6,
+        "date: 04/07/25": 4,
+        "description of articles: steel fittings, fuel surcharge, 1 skd": 2,
+        "tariff codes: czr9901, c50": 4,
+        "weight: 91": 2,
+        "pieces: 1": 4,
+        "payment & credit card information:": 2,
+        "the card number, exp. date, and signature fields on the remittance stub should be masked.": 2,
+        "all barcodes, including the qr code.": 8,
+        "machine-readable lines:": 14,
+        "the numbers below the barcodes (e.g., 000322 000000162).": 2,
+        "the line at the very bottom of the page: 73 52 53 744574 53 000008557 9": 2,
+        "file name: 38552148.png": 2,
+        "freight bill / pro number: 28510506": 2,
+        "shipper bl number: 31002324007": 2,
+        "po number: ps03001080": 2,
+        "shipper reference number: 821802918": 2,
+        "account & customer numbers:": 6,
+        "shipper / consignee account numbers: 2790343 and 3862705": 2,
+        "consignee: cape electrical supply and their address (3245 griffith rd...)": 2,
+        "line item amounts: $105.46, $78.69, $8.94, $193.09": 2,
+        "charges: $184.15": 2,
+        "discount: $119.14": 2,
+        "other charges: $8.94": 2,
+        "pay this amount / invoice amount: $73.95": 2,
+        "entire description block: including all nmfc# codes (03160 sub 9, 01500 sub 4), skid circuit breakers..., etc.": 2,
+        "weight: 70, 227": 2,
+        "rate: 81.12": 2,
+        "machine-readable line below the bill to address: e0080 10765 e114139830142 s2 p1670812 0129 0168.": 2,
+        "tracking codes at the bottom left: 0129 0168.": 2,
+        "file name: 38552159.png": 2,
+        "freight bill / pro number: 28510504": 2,
+        "shipper bl number: 31002324005": 2,
+        "po number: p2267952": 2,
+        "shipper reference number: 821803083": 2,
+        "shipper / consignee account numbers: 2790343 and 9999035": 2,
+        "consignee: wholesale electric supply co i and their address (1060 w elm st...)": 2,
+        "line item amounts: $360.31, $10.60, $370.91": 2,
+        "charges: $360.31": 2,
+        "discount: $283.20": 2,
+        "other charges: $10.60": 2,
+        "pay this amount / invoice amount: $87.71": 2,
+        "weight: 533": 2,
+        "rate: 67.60": 2,
+        "machine-readable line below the bill to address: e0085 10766 e114139830138 s2 p1670812 0127 0168.": 2,
+        "tracking codes at the bottom left: 0127 0168.": 2,
+        "file name: 38552162.png": 2,
+        "personal / contact information (mask with high priority)": 2,
+        "contact phone numbers:": 2,
+        "1-800-755-2728": 2,
+        "419-333-3876 (poc - point of contact)": 2,
+        "800-774-6886": 2,
+        "email:": 2,
+        "ltlccg@xpo.com": 2,
+        "highly sensitive information": 6,
+        "bank account details:": 6,
+        "customer number:": 6,
+        "sn#: 902818622": 2,
+        "company names:": 2,
+        "shipper: chemtall inc": 2,
+        "consignee: city of fremont, oh": 2,
+        "bill to: snf holding company / cass information systems inc": 2,
+        "customer name: mauser apackaging": 2,
+        "addresses:": 2,
+        "po box 982020, n richland hills, tx 76182": 2,
+        "po box 67, saint louis, mo 63166-0067": 2,
+        "chemical plant rd, riceboro, ga, 3132d": 2,
+        "1019 sand road, fremont, oh, 43420": 2,
+        "po box 660006, dallas, tx 75266-0006": 2,
+        "ltl invoice#: 584-493313": 2,
+        "charges: $3,378.15": 2,
+        "discount: -$3,134.92": 2,
+        "surcharge: $72.97": 2,
+        "other charges: $50.00": 2,
+        "total due: us $366.20": 2,
+        "shipment date: 03/25/2025": 2,
+        "payment due date: 04/27/2025": 6,
+        "shipment specifics:": 32,
+        "description of articles: plt resin compound 46030-0 class 55, apt appointment, etc.": 2,
+        "fuel surcharge percentage: 20.00%": 2,
+        "weight: 2,414 lbs": 2,
+        "rate: $139.94": 2,
+        "total distance: 627 mi": 2,
+        "delivery hours: 7am-2pm mon-fri": 2,
+        "584493313 0036620 8": 2,
+        "22 8 sr 3 430 s0022 i0559 d4388257102 s3 p4266540 0019 0037": 2,
+        "internal customer codes: 11 snpa, 12 snfhol, 6y dryvan, 93 010": 6,
+        "file name: 38552163.png": 2,
+        "unique identifiers: these are specific to this transaction and the parties involved.": 6,
+        "freight bill no: i405554787": 2,
+        "bill of lading no: 97930": 2,
+        "shipper# (in description): 797930": 2,
+        "po # (in description): 65305 63213": 2,
+        "consignee codes: acm150, roym12": 2,
+        "document id (at the top right): gl_inv00555_000140 us-023-000000162": 2,
+        "company names & addresses:": 30,
+        "shipper: acme foundry inc and their address (2002 spruce st...)": 2,
+        "consignee: roy metal finishing and their address (120 mcdougall ct...)": 2,
+        "bill to/remit from: parker hannifin / cass and their address (po box 67, saint louis...)": 6,
+        "remit payment address: po box 10020, port william oh 45164-2000": 6,
+        "pay this amount: $451.68": 2,
+        "line item amounts: $874.03, $173.47, $1047.50, $43.39": 2,
+        "discount: -$639.21": 2,
+        "rate: $20.95, .615, .1200": 2,
+        "date: 04/03/25": 4,
+        "description of articles: ci castings, fuel surcharge, etc.": 2,
+        "weight: 4172, 828, 5000": 2,
+        "pieces: 3": 4,
+        "payment information:": 6,
+        "the card number, exp. date, and signature fields on the remittance stub.": 6,
+        "the numbers below the barcodes (e.g., 000312 000000162).": 2,
+        "the line at the very bottom of the page: 73 52 48 555478 55 0000045168 9": 2,
+        "file name: 38552196.png": 2,
+        "freight bill / pro number: 28510500": 2,
+        "shipper bl number: 31002324001": 2,
+        "po number: 4505811662": 2,
+        "shipper reference number: 821802560": 2,
+        "shipper / consignee account numbers: 2790343 and 0079087": 2,
+        "consignee: border states electric and their address (9450 zachary ln n...)": 2,
+        "line item amounts: $361.41, $38.62, $76.76, $12.65, $489.44": 2,
+        "charges: $476.79": 2,
+        "discount: $384.77 and the number 8070": 2,
+        "other charges: $12.65": 2,
+        "pay this amount / invoice amount: $104.67": 2,
+        "entire description block: including all nmfc# codes (03160 sub 9, 51000 sub 2), skid circuit breakers..., etc.": 2,
+        "weight: 758, 161, 839": 2,
+        "rate: 47.68": 2,
+        "machine-readable line below the bill to address: e0025 10762 e114139830130 s2 p1670812 0123 0168.": 2,
+        "tracking codes at the bottom left: 0123 0168.": 2,
+        "file name: 38552198.png": 2,
+        "freight bill no: i369588645": 2,
+        "bill of lading no: 0101044045": 2,
+        "edi # (in description): 5737": 2,
+        "customer order# (in description): 5737": 2,
+        "consignee codes: p01ig6, gato70": 2,
+        "document id (at the top right): gl_inv00555_000140 us-019-000000162": 2,
+        "shipper: parker hannifin and their address (5920 highway 169 n...)": 2,
+        "consignee: gator tail and their address (306 ed broussard rd...)": 2,
+        "pay this amount: $106.29": 2,
+        "line item amounts: $144.61, $11.39": 2,
+        "discount: -$49.71": 2,
+        "rate: $66.95, $49.71, .1200": 2,
+        "description of articles: motor, fuel surcharge, sub 0000-9002, etc.": 2,
+        "tariff codes: czr9901, c60": 2,
+        "weight: 216": 2,
+        "the numbers below the barcodes (e.g., 000310 000000162).": 2,
+        "the line at the very bottom of the page: 73 51 54 958864 53 0000010629 9.": 2,
+        "file name: 38552199.png": 2,
+        "personal information (mask with highest priority)": 4,
+        "contact person details:": 10,
+        "name: gary skaggs": 2,
+        "phone number: 573-663-8683": 2,
+        "other contact details:": 4,
+        "phone: 800-774-6886 and 1-800-755-2728": 2,
+        "sn#: 902645751": 2,
+        "shipper: chemtall inc and their address (chemical plant rd...)": 4,
+        "consignee: doe run co warehouse 19 / sweetwater mine and their address (3882 sweetwater mine rd...)": 2,
+        "bill to: snf holding company / cass information systems inc and their address (po box 67...)": 4,
+        "xpo addresses: po box 982020, n richland hills... and po box 660006, dallas...": 4,
+        "other company name: packaging solutions": 2,
+        "ltl invoice#: 584-493151": 2,
+        "charges: $3,573.68": 2,
+        "discount: -$3,387.17": 2,
+        "surcharges/fees: $56.42, $50.00, $55.75": 2,
+        "total due: us $348.68": 2,
+        "shipment date: 03/21/2025": 4,
+        "description of articles: plt resin compound 46030-0 class 55, etc.": 4,
+        "fuel surcharge percentage: 20.29%": 4,
+        "weight: 2,423 lbs": 2,
+        "rate: $147.49": 2,
+        "total distance: 623 mi": 2,
+        "delivery hours: 7am to 3pm mon thru fri": 2,
+        "584493151 0034868 8": 2,
+        "22 8 sp 3 430 e0022 i0552 d4388256268 s3 p4266540 0012 0037": 2,
+        "file name: 38552224.png": 2,
+        "freight bill no: i327611538": 2,
+        "po # (in description): 59530": 2,
+        "bill of lading no: none (field should be masked)": 2,
+        "consignee/shipper codes: farp29, purb43": 2,
+        "document id (at the top right): gl_inv00555_000140 us-015-000000162": 2,
+        "item code (in description): 568909": 2,
+        "shipper: far packaging co inc and their address (2505 air park dr...)": 2,
+        "consignee: parker hannifin and their address (8425 triad dr...)": 2,
+        "pay this amount: $174.94": 2,
+        "line item amounts: $405.72, $18.74": 2,
+        "discount: -$249.52": 2,
+        "rate: $40.41, .615, .1200": 2,
+        "entire description block: this includes stack of empty wood boxes, all dimensions (1 pc 45.00 x 41.00...), cubic feet calculations, and other charge details.": 2,
+        "tariff codes: czr9901, c175": 2,
+        "weight: 1004": 2,
+        "the numbers below the barcodes (e.g., 000308 000000162).": 2,
+        "the line at the very bottom of the page: 73 51 50 761153 56 0000017494 9": 2,
+        "file name: 38552225.png": 2,
+        "name: blake perkins": 2,
+        "email: blake.perkins@new-indycb.com": 2,
+        "phone number: 805-271-7203": 2,
+        "phone: 1-800-755-2728, 1-800-774-6886": 2,
+        "sn#: 901460838": 2,
+        "consignee: new indy containerboard and their address (5930 perkins rd...)": 2,
+        "other associated names/locations: wal-m4 williams, assoc - 80-405 east 78th street bloomington, mn 55420, mauser packaging solutions": 2,
+        "ltl invoice#: 584-493136": 2,
+        "charges: $24,854.00": 2,
+        "discount: -$23,636.31": 2,
+        "surcharges/fees: $308.40, $25.00": 2,
+        "total due: us $1,611.25": 2,
+        "weight: 9,692 lbs, 10,000 lbs": 2,
+        "rate: $248.54": 2,
+        "total distance: 2498 mi": 2,
+        "receiving hours: m-f 7am - 3:30pm": 2,
+        "584493136 0161125 9": 2,
+        "22 8 sp 3 430 e0022 i0549 d4388256028 s3 p4266540 0009 0037": 2,
+        "file name: 38552668.png": 2,
+        "personal information (mask with high priority)": 2,
+        "name: alan fernandez": 2,
+        "processor code: lbgott": 16,
+        "contact details:": 18,
+        "email: billing@heniff.com": 18,
+        "phone number: 630-230-2113": 18,
+        "highly sensitive ids & reference numbers": 18,
+        "transaction & document ids:": 18,
+        "pro. no.: 2552868d": 2,
+        "bl #: 902808932": 2,
+        "po: 4510661204": 2,
+        "sid: 902808932": 2,
+        "vehicle identifiers:": 18,
+        "tractor #: 123126": 2,
+        "trailer #: 1rz97824": 2,
+        "biller: heniff transportation systems, llc. and its addresses (202 carson ct... and po box 74007095...)": 18,
+        "shipper: basf corporation and their address (1520 old stage road...)": 2,
+        "consignee: select chemistry and their address (4113 w industrial ave...)": 2,
+        "bill to: basf c/o cass info sys and their address (po box 17668, saint louis...)": 18,
+        "charges: $1,800.00, $90.00": 2,
+        "subtotal: $1,890.00": 2,
+        "total due: us $1,890.00": 2,
+        "rates & quantities:": 18,
+        "billing quantity: 100 flat, 1 flat": 2,
+        "rate: $18.00 flat, $90.00 flat": 2,
+        "date billed: 4/21/2025": 18,
+        "date shipped: 4/1/2025": 4,
+        "date delivered: 4/4/2025": 2,
+        "total due by: 05/21/25": 12,
+        "description: heel disposal, see contract, steaming": 2,
+        "credit terms: net 30": 18,
+        "internal codes: basmausc, selmidtx, 11 basf, zz solo, basfaddt": 2,
+        "file name: 38552669.png": 2,
+        "personal / processor information": 12,
+        "processor code: knickman": 2,
+        "pro. no.: 2499961c": 2,
+        "bl #: 808488094": 2,
+        "sid: 808488094": 2,
+        "service record number: 34839236 quala wash": 2,
+        "tractor #: 1445": 2,
+        "trailer #: tc/67466": 2,
+        "shipper: b a s f corp and their address (4201 evonik rd...)": 2,
+        "consignee: basf c/o delta chemical and their address (3950 hwy 30...)": 2,
+        "charges: $85.00": 2,
+        "subtotal: $85.00": 2,
+        "total due: us $85.00": 2,
+        "billing quantity: 1 flat": 2,
+        "rate: $85.00 flat": 2,
+        "date shipped: 1/25/2025": 2,
+        "date delivered: 1/27/2025": 2,
+        "service date: 01/25/2025": 2,
+        "total due by: 05/20/25": 2,
+        "description: prep charge": 2,
+        "internal codes: bastheal, bassaila, 11 basf, zz solo, basfaddt": 2,
+        "ufile name: 38552672.png": 2,
+        "pro. no.: 2554594b": 2,
+        "bl #: 902984079": 2,
+        "po: 4501338919": 2,
+        "sid: 902984079": 2,
+        "tractor #: 6275": 2,
+        "trailer #: 1rz97227": 2,
+        "shipper: imtt / c/o basf and their address (8112 hwy 75...)": 6,
+        "consignee: bostik inc and their address (211 boston st...)": 2,
+        "charges: $450.00, $560.00": 2,
+        "subtotal: $1,010.00": 2,
+        "total due: us $1,010.00": 2,
+        "billing quantity: 5 flat, 5 us dollars": 2,
+        "rate: $90.00 flat, $112.00 flat": 2,
+        "date delivered: 4/13/2025": 2,
+        "total due by: 05/18/25": 2,
+        "description: steaming, steaming- driver delay": 2,
+        "internal codes: imtgeila, bosmidma, 11 basf, zz solo, basfaddt": 2,
+        "file name: 38552675.png": 2,
+        "pro. no.: 2554604b": 2,
+        "bl #: 902984708": 2,
+        "sid: 902984708": 2,
+        "tractor #: 6563": 2,
+        "trailer #: 1ry94298": 2,
+        "shipper: basf corp. and their address (1609 biddle avenue...)": 2,
+        "consignee: heniff transportation and their address (495 ne oneil way...)": 2,
+        "charges: $1,400.00": 2,
+        "subtotal: $1,400.00": 2,
+        "total due: us $1,400.00": 2,
+        "billing quantity: 12.5 hours": 2,
+        "rate: $112.00 $/hour": 6,
+        "date shipped: 4/14/2025": 2,
+        "date delivered: 4/18/2025": 6,
+        "description: basf corp.,, loading demurrage": 2,
+        "internal codes: baswyami, henredor, 11 basf, zz solo, basfaddt": 2,
+        "file name: 38552678.png": 2,
+        "personal information": 4,
+        "name: luis rodriguez": 2,
+        "pro. no.: 2558441d": 2,
+        "bl #: 903057748": 2,
+        "po: 311016062": 2,
+        "sid: 903057748": 2,
+        "tractor #: 818306": 2,
+        "trailer #: 1rg13902": 2,
+        "shipper: basf corp and their address (2656 e 117th street...)": 2,
+        "consignee: h.b. fuller company and their address (2727 kinney avenue...)": 2,
+        "charges: $180.00": 2,
+        "subtotal: $180.00": 2,
+        "total due: us $180.00": 2,
+        "billing quantity: 15 flat": 2,
+        "rate: $12.00 flat": 2,
+        "date shipped: 4/11/2025": 4,
+        "date delivered: 4/11/2025": 2,
+        "description: heel disposal": 2,
+        "internal codes: baschi12, hbfgrami, 11 basf, zz solo, basfaddt": 2,
+        "file name: 38552683.png": 2,
+        "pro. no.: 2559334b": 2,
+        "bl #: 903060533": 2,
+        "sid: 903060533": 2,
+        "tractor #: 1162": 2,
+        "trailer #: 1ry95546": 2,
+        "consignee: covestro llc and their address (17595 energy road...)": 4,
+        "charges: $1,020.00, $200.00, $34.28": 2,
+        "subtotal: $1,254.28": 2,
+        "total due: us $1,254.28": 2,
+        "billing quantity: 17 flat, 1 flat, 59 flat": 2,
+        "rate: $60.00 flat, $200.00 flat, $0.581 flat": 2,
+        "date delivered: 4/16/2025": 2,
+        "description: steaming, steaming - out of route miles, fuel surcharge (flat)": 2,
+        "internal codes: imtgeila, covprowv, 11 basf, zz solo, basfaddt": 4,
+        "file name: 38552703.png": 2,
+        "pro. no.: 2312t45d": 2,
+        "bl #: 903049866": 2,
+        "po: 2415078590": 2,
+        "ref: 903049866": 2,
+        "tractor #: 8607": 2,
+        "trailer #: 70239rb": 2,
+        "all line item charges: $1,055.60, $467.65, $83.58, $500.00, $1,400.00, $420.00, $1,369.00, $112.14, $1,568.00, $960.00, $1,792.00, $170.91": 2,
+        "subtotal: $9,898.88": 2,
+        "all billing quantities: 14 flat, 199 flat, 1 flat, 7 flat, 3.75 hours, 267 flat, 14 us dollars, 16 flat, 16 us dollars, etc.": 2,
+        "all rates: $75.4 flat, $2.35 flat, $0.42 flat, $500.00 flat, $112.00 $/hour, etc.": 2,
+        "date shipped: 6/18/2024": 2,
+        "date delivered: 6/20/2024": 2,
+        "spotting ref dates: 6/19/24-6/26/24": 2,
+        "all descriptions: steaming, layover, redelivery, unloading demurrage, etc.": 2,
+        "file name: 38552726.png": 2,
+        "name: sandra guel": 2,
+        "pro. no.: 2562272b": 2,
+        "bl #: 903066105": 2,
+        "sid: 903066105": 2,
+        "tractor #: 118227": 2,
+        "trailer #: 1rg16408": 2,
+        "shipper: basf and their address (602 copper road...)": 2,
+        "consignee: american chemical services co and their address (16201 maccorkle ave...)": 2,
+        "charges: $84.00": 2,
+        "subtotal: $84.00": 2,
+        "total due: us $84.00": 2,
+        "billing quantity: 0.75 hours": 2,
+        "date shipped: 4/15/2025": 2,
+        "description: basf,, loading demurrage": 2,
+        "internal codes: basfretx, amemarwv, 11 basf, zz solo, basfaddt": 2,
+        "file name: 38552750.png": 2,
+        "pro. no.: 2565749b": 2,
+        "po: 4500019139": 2,
+        "ref: 903800379": 2,
+        "sid: 903800379": 2,
+        "tractor #: 120247": 2,
+        "trailer #: 51740": 2,
+        "shipper: basf corporation and their address (8404 river road...)": 2,
+        "consignee: procter & gamble and their address (3701 monroe hwy...)": 2,
+        "charges: $28.00": 2,
+        "subtotal: $28.00": 2,
+        "total due: us $28.00": 2,
+        "billing quantity: 0.25 hours": 2,
+        "date shipped: 4/17/2025": 2,
+        "description: basf corporation,, loading demurrage": 2,
+        "internal codes: basgeila, profinla, 11 basf, zz solo, basfaddt": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+File Name: 38552678.png
+
+Personal Information
+Contact Person Details:
+
+Name: LUIS RODRIGUEZ
+
+Processor Code: LBGOTT
+
+Contact Details:
+
+Email: BILLING@HENIFF.COM
+
+Phone Number: 630-230-2113
+
+Highly Sensitive IDs & Reference Numbers
+Transaction & Document IDs:
+
+PRO. NO.: 2558441D
+
+BL #: 903057748
+
+PO: 311016062
+
+SID: 903057748
+
+Vehicle Identifiers:
+
+TRACTOR #: 818306
+
+TRAILER #: 1RG13902
+
+Company & Location Information
+Company Names & Addresses:
+
+Biller: HENIFF TRANSPORTATION SYSTEMS, LLC. and its addresses (202 CARSON CT... and PO BOX 74007095...)
+
+Shipper: BASF CORP and their address (2656 E 117TH STREET...)
+
+Consignee: H.B. FULLER COMPANY and their address (2727 KINNEY AVENUE...)
+
+Bill To: BASF C/O CASS INFO SYS and their address (PO BOX 17668, SAINT LOUIS...)
+
+Financial & Shipment Details
+All Monetary Values:
+
+Charges: $180.00
+
+SubTotal: $180.00
+
+Total Due: US $180.00
+
+Rates & Quantities:
+
+Billing Quantity: 15 Flat
+
+Rate: $12.00 Flat
+
+Dates:
+
+Date Billed: 4/21/2025
+
+Date Shipped: 4/11/2025
+
+Date Delivered: 4/11/2025
+
+Total Due By: 05/21/25
+
+Shipment Specifics:
+
+Description: Heel Disposal
+
+Credit Terms: Net 30
+
+Internal and Document-Specific Codes
+Internal Codes: BASCHI12, HBFGRAMI, 11 BASF, ZZ SOLO, BASFADDT

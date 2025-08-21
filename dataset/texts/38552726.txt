@@ -1,0 +1,74 @@
+File Name: 38552726.png
+
+Personal Information
+Contact Person Details:
+
+Name: SANDRA GUEL
+
+Processor Code: LBGOTT
+
+Contact Details:
+
+Email: BILLING@HENIFF.COM
+
+Phone Number: 630-230-2113
+
+Highly Sensitive IDs & Reference Numbers
+Transaction & Document IDs:
+
+PRO. NO.: 2562272B
+
+BL #: 903066105
+
+SID: 903066105
+
+Vehicle Identifiers:
+
+TRACTOR #: 118227
+
+TRAILER #: 1RG16408
+
+Company & Location Information
+Company Names & Addresses:
+
+Biller: HENIFF TRANSPORTATION SYSTEMS, LLC. and its addresses (202 CARSON CT... and PO BOX 74007095...)
+
+Shipper: BASF and their address (602 COPPER ROAD...)
+
+Consignee: AMERICAN CHEMICAL SERVICES CO and their address (16201 MACCORKLE AVE...)
+
+Bill To: BASF C/O CASS INFO SYS and their address (PO BOX 17668, SAINT LOUIS...)
+
+Financial & Shipment Details
+All Monetary Values:
+
+Charges: $84.00
+
+SubTotal: $84.00
+
+Total Due: US $84.00
+
+Rates & Quantities:
+
+Billing Quantity: 0.75 Hours
+
+Rate: $112.00 $/Hour
+
+Dates:
+
+Date Billed: 4/21/2025
+
+Date Shipped: 4/15/2025
+
+Date Delivered: 4/18/2025
+
+Total Due By: 05/21/25
+
+Shipment Specifics:
+
+Description: Basf,, Loading Demurrage
+
+Credit Terms: Net 30
+
+Internal and Document-Specific Codes
+Internal Codes: BASFRETX, AMEMARWV, 11 BASF, ZZ SOLO, BASFADDT

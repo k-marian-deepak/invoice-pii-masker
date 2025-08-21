@@ -1,0 +1,74 @@
+File Name: 38552669.png
+
+Personal / Processor Information
+Processor Code: KNICKMAN
+
+Contact Details:
+
+Email: BILLING@HENIFF.COM
+
+Phone Number: 630-230-2113
+
+Highly Sensitive IDs & Reference Numbers
+Transaction & Document IDs:
+
+PRO. NO.: 2499961C
+
+BL #: 808488094
+
+SID: 808488094
+
+Service Record Number: 34839236 QUALA WASH
+
+Vehicle Identifiers:
+
+TRACTOR #: 1445
+
+TRAILER #: TC/67466
+
+Company & Location Information
+Company Names & Addresses:
+
+Biller: HENIFF TRANSPORTATION SYSTEMS, LLC. and its addresses (202 CARSON CT... and PO BOX 74007095...)
+
+Shipper: B A S F CORP and their address (4201 EVONIK RD...)
+
+Consignee: BASF C/O DELTA CHEMICAL and their address (3950 HWY 30...)
+
+Bill To: BASF C/O CASS INFO SYS and their address (PO BOX 17668, SAINT LOUIS...)
+
+Financial & Shipment Details
+All Monetary Values:
+
+Charges: $85.00
+
+SubTotal: $85.00
+
+Total Due: US $85.00
+
+Rates & Quantities:
+
+Billing Quantity: 1 Flat
+
+Rate: $85.00 Flat
+
+Dates:
+
+Date Billed: 4/21/2025
+
+Date Shipped: 1/25/2025
+
+Date Delivered: 1/27/2025
+
+Service Date: 01/25/2025
+
+Total Due By: 05/20/25
+
+Shipment Specifics:
+
+Description: Prep Charge
+
+Credit Terms: Net 30
+
+Internal and Document-Specific Codes
+Internal Codes: BASTHEAL, BASSAILA, 11 BASF, ZZ SOLO, BASFADDT

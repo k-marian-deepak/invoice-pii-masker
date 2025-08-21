@@ -1,0 +1,71 @@
+File Name: 38552159.png
+
+Highly Sensitive Information & IDs
+Transaction & Document IDs: These are unique identifiers for the shipment and invoice.
+
+Freight Bill / PRO Number: 28510504
+
+Shipper BL Number: 31002324005
+
+PO Number: P2267952
+
+Shipper Reference Number: 821803083
+
+Account & Customer Numbers:
+
+Shipper / Consignee Account Numbers: 2790343 and 9999035
+
+Customer (on remit stub): 6M27903
+
+Company & Location Information
+Company Names & Addresses: Masking these prevents linking the document to the specific parties involved.
+
+Sender/Biller: DAYTON FREIGHT LINES, INC and their full address (PO BOX 368, VANDALIA, OH...)
+
+Bill To: SQUARE D CO (DES MOINES DOCK) / C/O CASS INFORMATION SYSTEMS and their address (PO BOX 67, SAINT LOUIS, MO...)
+
+Shipper: SQUARE D COMPANY DROP DSM SC and their address (1101 ADVENTURELAND DR...)
+
+Consignee: WHOLESALE ELECTRIC SUPPLY CO I and their address (1060 W ELM ST...)
+
+Contact Information:
+
+Phone: (937) 264-4060
+
+Financial & Shipment Details
+All Monetary Values: This includes all charges, rates, discounts, and totals.
+
+Line Item Amounts: $360.31, $10.60, $370.91
+
+Charges: $360.31
+
+Discount: $283.20
+
+Other Charges: $10.60
+
+Pay This Amount / Invoice Amount: $87.71
+
+Dates:
+
+Date: 02/14/2025
+
+Invoice Date: 02/19/2025
+
+Shipment Specifics: This information is commercially sensitive.
+
+Description: NMFC# 03160 Sub 9, SKID CIRCUIT BREAKERS OR SWITCHES...
+
+Fuel Surcharge Percentage: 13.750%
+
+Weight: 533
+
+Rate: 67.60
+
+Payment Terms: PREPAID NET 15 DAYS
+
+Internal and Document-Specific Codes
+All Barcodes.
+
+Machine-readable line below the Bill To address: E0085 10766 E114139830138 S2 P1670812 0127 0168.
+
+Tracking Codes at the bottom left: 0127 0168.

@@ -1,0 +1,45 @@
+{
+  "label_synonyms": {
+    "GSTIN": [
+      "gstin",
+      "gst no",
+      "gst number",
+      "gst",
+      "goods and services tax"
+    ],
+    "PAN": [
+      "pan",
+      "pan no",
+      "pan number"
+    ],
+    "Email": [
+      "email",
+      "e-mail",
+      "mail id"
+    ],
+    "Phone": [
+      "phone",
+      "mobile",
+      "contact"
+    ],
+    "PIN": [
+      "pin",
+      "pincode",
+      "postal code",
+      "zip"
+    ],
+    "Date": [
+      "date",
+      "invoice date",
+      "bill date"
+    ],
+    "Amount": [
+      "total",
+      "amount",
+      "grand total",
+      "invoice total",
+      "balance due"
+    ]
+  },
+  "vendors": {}
+}

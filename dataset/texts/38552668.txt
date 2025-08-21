@@ -1,0 +1,76 @@
+File Name: 38552668.png
+
+Personal Information (Mask with High Priority)
+Contact Person Details:
+
+Name: ALAN FERNANDEZ
+
+Processor Code: LBGOTT
+
+Contact Details:
+
+Email: BILLING@HENIFF.COM
+
+Phone Number: 630-230-2113
+
+Highly Sensitive IDs & Reference Numbers
+Transaction & Document IDs:
+
+PRO. NO.: 2552868D
+
+BL #: 902808932
+
+PO: 4510661204
+
+SID: 902808932
+
+Vehicle Identifiers:
+
+TRACTOR #: 123126
+
+TRAILER #: 1RZ97824
+
+Company & Location Information
+Company Names & Addresses:
+
+Biller: HENIFF TRANSPORTATION SYSTEMS, LLC. and its addresses (202 CARSON CT... and PO BOX 74007095...)
+
+Shipper: BASF CORPORATION and their address (1520 Old Stage Road...)
+
+Consignee: SELECT CHEMISTRY and their address (4113 W INDUSTRIAL AVE...)
+
+Bill To: BASF C/O CASS INFO SYS and their address (PO BOX 17668, SAINT LOUIS...)
+
+Financial & Shipment Details
+All Monetary Values:
+
+Charges: $1,800.00, $90.00
+
+SubTotal: $1,890.00
+
+Total Due: US $1,890.00
+
+Rates & Quantities:
+
+Billing Quantity: 100 Flat, 1 Flat
+
+Rate: $18.00 Flat, $90.00 Flat
+
+Dates:
+
+Date Billed: 4/21/2025
+
+Date Shipped: 4/1/2025
+
+Date Delivered: 4/4/2025
+
+Total Due By: 05/21/25
+
+Shipment Specifics:
+
+Description: Heel Disposal, See Contract, Steaming
+
+Credit Terms: Net 30
+
+Internal and Document-Specific Codes
+Internal Codes: BASMAUSC, SELMIDTX, 11 BASF, ZZ SOLO, BASFADDT

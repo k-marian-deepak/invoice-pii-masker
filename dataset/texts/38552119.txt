@@ -1,0 +1,79 @@
+Highly Sensitive Information (Mask These First)
+Account Number:
+
+860847426
+
+Transaction & Document IDs: These are unique identifiers for the shipment and invoice.
+
+Freight Bill Number: 6386880500
+
+Bill of Lading Number: 30107
+
+P.O. Number: 1108078776
+
+Company & Location Information
+Company Names & Addresses: Masking these prevents linking the transaction to the involved parties.
+
+Shipper: WOODLAND PLASTIC CORP and their full address (725 N FAIRBANKS AVE...)
+
+Consignee: BROKERAGE & LOGISTICS and their full address (2755 KURTZ ST 4B...)
+
+Bill To / Payment Due From: SCHNEIDER ELECTRIC EDI / C/O CASS INFORMATION SYSTEMS 133602 and their address (PO BOX 67...)
+
+FedEx Payment & Inquiry Addresses:
+
+DEPT CH PO BOX 10306 PALATINE IL 60055-0306
+
+2200 Forward DR Harrison AR 72602-0840
+
+Contact Information:
+
+Email: customerexperience@fedex.com
+
+Phone: 870 741 9070
+
+Fax: 870 391-5523
+
+Toll-Free: 866 393 4585
+
+Financial & Shipment Details
+All Monetary Values:
+
+Total Amount Due: $6,108.15
+
+Total Charges in table: $6,000.00, $108.15
+
+Dates:
+
+Ship Date / Invoice Date: 03/28/2025 / 04/09/2025
+
+Payment Due Date: 04/24/2025
+
+Shipment Specifics: This is commercially sensitive data.
+
+Entire Description Block: This includes the NMFC code, all charge descriptions, fuel surcharges, mileage details, and pricing notes.
+
+Pieces: 648
+
+Weight (WTLBS): 11,820
+
+Class: 070
+
+Rate: FLAT
+
+Payment & Service Terms:
+
+PREPAID
+
+FXFE PRIORITY
+
+Internal and Document-Specific Codes
+Barcode on the right side of the remittance advice.
+
+Machine-readable lines at the very bottom:
+
+6386880500 000000610815 04152025 4
+
+1104-02-00-0000989-0005-0008506
+
+Origin / Destination Codes: ELH / OTM

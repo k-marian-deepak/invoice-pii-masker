@@ -1,0 +1,75 @@
+File Name: 38552163.png
+
+Highly Sensitive Information & IDs
+Unique Identifiers: These are specific to this transaction and the parties involved.
+
+Freight Bill No: I405554787
+
+Bill of Lading No: 97930
+
+Shipper# (in description): 797930
+
+PO # (in description): 65305 63213
+
+Customer & Internal Codes:
+
+Customer Code: P0028V
+
+Consignee Codes: ACM150, ROYM12
+
+Document ID (at the top right): GL_INV00555_000140 US-023-000000162
+
+Company & Location Information
+Company Names & Addresses:
+
+Shipper: ACME FOUNDRY INC and their address (2002 SPRUCE ST...)
+
+Consignee: ROY METAL FINISHING and their address (120 MCDOUGALL CT...)
+
+Bill To/Remit From: PARKER HANNIFIN / CASS and their address (PO BOX 67, SAINT LOUIS...)
+
+R+L Carriers Addresses: PO Box 271 | Wilmington, Ohio 45177-0271 and 600 GILLAM RD...
+
+Remit Payment Address: PO BOX 10020, PORT WILLIAM OH 45164-2000
+
+Contact Information:
+
+Phone Numbers: 937-382-1494, 800-543-5589
+
+Website: www.gorlc.com
+
+Financial & Shipment Details
+All Monetary Values:
+
+Pay This Amount: $451.68
+
+Line Item Amounts: $874.03, $173.47, $1047.50, $43.39
+
+Discount: -$639.21
+
+Rate: $20.95, .615, .1200
+
+Shipment Specifics:
+
+Date: 04/03/25
+
+Description of Articles: CI CASTINGS, FUEL SURCHARGE, etc.
+
+Tariff Codes: CZR9901, C50
+
+Weight: 4172, 828, 5000
+
+Pieces: 3
+
+Payment Information:
+
+The CARD NUMBER, EXP. DATE, and SIGNATURE fields on the remittance stub.
+
+Internal and Document-Specific Codes
+All Barcodes, including the QR code.
+
+Machine-readable lines:
+
+The numbers below the barcodes (e.g., 000312 000000162).
+
+The line at the very bottom of the page: 73 52 48 555478 55 0000045168 9

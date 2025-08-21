@@ -1,0 +1,71 @@
+File Name: 38552196.png
+
+Highly Sensitive Information & IDs
+Transaction & Document IDs: These are unique identifiers for the shipment and invoice.
+
+Freight Bill / PRO Number: 28510500
+
+Shipper BL Number: 31002324001
+
+PO Number: 4505811662
+
+Shipper Reference Number: 821802560
+
+Account & Customer Numbers:
+
+Shipper / Consignee Account Numbers: 2790343 and 0079087
+
+Customer (on remit stub): 6M27903
+
+Company & Location Information
+Company Names & Addresses:
+
+Sender/Biller: DAYTON FREIGHT LINES, INC and their full address (PO BOX 368, VANDALIA, OH...)
+
+Bill To: SQUARE D CO (DES MOINES DOCK) / C/O CASS INFORMATION SYSTEMS and their address (PO BOX 67, SAINT LOUIS, MO...)
+
+Shipper: SCHNEIDER ELECTRIC and their address (1101 ADVENTURELAND DR...)
+
+Consignee: BORDER STATES ELECTRIC and their address (9450 ZACHARY LN N...)
+
+Contact Information:
+
+Phone: (937) 264-4060
+
+Financial & Shipment Details
+All Monetary Values:
+
+Line Item Amounts: $361.41, $38.62, $76.76, $12.65, $489.44
+
+Charges: $476.79
+
+Discount: $384.77 and the number 8070
+
+Other Charges: $12.65
+
+Pay This Amount / Invoice Amount: $104.67
+
+Dates:
+
+Date: 02/14/2025
+
+Invoice Date: 02/19/2025
+
+Shipment Specifics:
+
+Entire Description Block: Including all NMFC# codes (03160 Sub 9, 51000 Sub 2), SKID CIRCUIT BREAKERS..., etc.
+
+Fuel Surcharge Percentage: 13.750%
+
+Weight: 758, 161, 839
+
+Rate: 47.68
+
+Payment Terms: PREPAID NET 15 DAYS
+
+Internal and Document-Specific Codes
+All Barcodes.
+
+Machine-readable line below the Bill To address: E0025 10762 E114139830130 S2 P1670812 0123 0168.
+
+Tracking Codes at the bottom left: 0123 0168.

@@ -1,0 +1,70 @@
+File Name: 38552703.png
+
+Personal / Processor Information
+Processor Code: LBGOTT
+
+Contact Details:
+
+Email: BILLING@HENIFF.COM
+
+Phone Number: 630-230-2113
+
+Highly Sensitive IDs & Reference Numbers
+Transaction & Document IDs:
+
+PRO. NO.: 2312T45D
+
+BL #: 903049866
+
+PO: 2415078590
+
+REF: 903049866
+
+Vehicle Identifiers:
+
+TRACTOR #: 8607
+
+TRAILER #: 70239RB
+
+Company & Location Information
+Company Names & Addresses:
+
+Biller: HENIFF TRANSPORTATION SYSTEMS, LLC. and its addresses (202 CARSON CT... and PO BOX 74007095...)
+
+Shipper: IMTT / C/O BASF and their address (8112 HWY 75...)
+
+Consignee: COVESTRO LLC and their address (17595 ENERGY ROAD...)
+
+Bill To: BASF C/O CASS INFO SYS and their address (PO BOX 17668, SAINT LOUIS...)
+
+Financial & Shipment Details
+All Monetary Values:
+
+All line item charges: $1,055.60, $467.65, $83.58, $500.00, $1,400.00, $420.00, $1,369.00, $112.14, $1,568.00, $960.00, $1,792.00, $170.91
+
+SubTotal: $9,898.88
+
+Rates & Quantities:
+
+All Billing Quantities: 14 Flat, 199 Flat, 1 Flat, 7 Flat, 3.75 Hours, 267 Flat, 14 US Dollars, 16 Flat, 16 US Dollars, etc.
+
+All Rates: $75.4 Flat, $2.35 Flat, $0.42 Flat, $500.00 Flat, $112.00 $/Hour, etc.
+
+Dates:
+
+Date Billed: 4/21/2025
+
+Date Shipped: 6/18/2024
+
+Date Delivered: 6/20/2024
+
+Spotting Ref Dates: 6/19/24-6/26/24
+
+Shipment Specifics:
+
+All Descriptions: Steaming, Layover, Redelivery, Unloading Demurrage, etc.
+
+Credit Terms: Net 30
+
+Internal and Document-Specific Codes
+Internal Codes: IMTGEILA, COVPROWV, 11 BASF, ZZ SOLO, BASFADDT

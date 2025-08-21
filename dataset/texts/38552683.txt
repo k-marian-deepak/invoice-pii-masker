@@ -1,0 +1,70 @@
+File Name: 38552683.png
+
+Personal / Processor Information
+Processor Code: LBGOTT
+
+Contact Details:
+
+Email: BILLING@HENIFF.COM
+
+Phone Number: 630-230-2113
+
+Highly Sensitive IDs & Reference Numbers
+Transaction & Document IDs:
+
+PRO. NO.: 2559334B
+
+BL #: 903060533
+
+SID: 903060533
+
+Vehicle Identifiers:
+
+TRACTOR #: 1162
+
+TRAILER #: 1RY95546
+
+Company & Location Information
+Company Names & Addresses:
+
+Biller: HENIFF TRANSPORTATION SYSTEMS, LLC. and its addresses (202 CARSON CT... and PO BOX 74007095...)
+
+Shipper: IMTT / C/O BASF and their address (8112 HWY 75...)
+
+Consignee: COVESTRO LLC and their address (17595 ENERGY ROAD...)
+
+Bill To: BASF C/O CASS INFO SYS and their address (PO BOX 17668, SAINT LOUIS...)
+
+Financial & Shipment Details
+All Monetary Values:
+
+Charges: $1,020.00, $200.00, $34.28
+
+SubTotal: $1,254.28
+
+Total Due: US $1,254.28
+
+Rates & Quantities:
+
+Billing Quantity: 17 Flat, 1 Flat, 59 Flat
+
+Rate: $60.00 Flat, $200.00 Flat, $0.581 Flat
+
+Dates:
+
+Date Billed: 4/21/2025
+
+Date Shipped: 4/11/2025
+
+Date Delivered: 4/16/2025
+
+Total Due By: 05/21/25
+
+Shipment Specifics:
+
+Description: Steaming, Steaming - Out Of Route Miles, Fuel Surcharge (Flat)
+
+Credit Terms: Net 30
+
+Internal and Document-Specific Codes
+Internal Codes: IMTGEILA, COVPROWV, 11 BASF, ZZ SOLO, BASFADDT

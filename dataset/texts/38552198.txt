@@ -1,0 +1,75 @@
+File Name: 38552198.png
+
+Highly Sensitive Information & IDs
+Unique Identifiers: These are specific to this transaction and the parties involved.
+
+Freight Bill No: I369588645
+
+Bill of Lading No: 0101044045
+
+EDI # (in description): 5737
+
+Customer Order# (in description): 5737
+
+Customer & Internal Codes:
+
+Customer Code: P0028V
+
+Consignee Codes: P01IG6, GATO70
+
+Document ID (at the top right): GL_INV00555_000140 US-019-000000162
+
+Company & Location Information
+Company Names & Addresses:
+
+Shipper: PARKER HANNIFIN and their address (5920 HIGHWAY 169 N...)
+
+Consignee: GATOR TAIL and their address (306 ED BROUSSARD RD...)
+
+Bill To/Remit From: PARKER HANNIFIN / CASS and their address (PO BOX 67, SAINT LOUIS...)
+
+R+L Carriers Addresses: PO Box 271 | Wilmington, Ohio 45177-0271 and 600 GILLAM RD...
+
+Remit Payment Address: PO BOX 10020, PORT WILLIAM OH 45164-2000
+
+Contact Information:
+
+Phone Numbers: 937-382-1494, 800-543-5589
+
+Website: www.gorlc.com
+
+Financial & Shipment Details
+All Monetary Values:
+
+Pay This Amount: $106.29
+
+Line Item Amounts: $144.61, $11.39
+
+Discount: -$49.71
+
+Rate: $66.95, $49.71, .1200
+
+Shipment Specifics:
+
+Date: 04/03/25
+
+Description of Articles: MOTOR, FUEL SURCHARGE, SUB 0000-9002, etc.
+
+Tariff Codes: CZR9901, C60
+
+Weight: 216
+
+Pieces: 1
+
+Payment Information:
+
+The CARD NUMBER, EXP. DATE, and SIGNATURE fields on the remittance stub.
+
+Internal and Document-Specific Codes
+All Barcodes, including the QR code.
+
+Machine-readable lines:
+
+The numbers below the barcodes (e.g., 000310 000000162).
+
+The line at the very bottom of the page: 73 51 54 958864 53 0000010629 9.

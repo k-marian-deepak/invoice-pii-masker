@@ -1,0 +1,71 @@
+Highly Sensitive Information (Mask These First)
+Bank Account Details: This is the most critical information to mask.
+
+Routing #: 121000248
+
+Account #: 4943582890
+
+SWIFT Code: WFBIUS6S
+
+Tax & Business IDs:
+
+FED TAX ID#: 94-2904864
+
+DUNS#: 08-043-1663
+
+Transaction & Customer Specific Information
+Invoice Number:
+
+LTL INVOICE#: 177-422556 (appears in multiple places)
+
+Company Names & Addresses: Masking these prevents linking the transaction to specific entities.
+
+Shipper: POLYDYNE CORP / POLYDYNAMIE and their full address (10 SHUFFLER INDUSTRIAL PARK...)
+
+Consignee: OCEAN COUNTY UTILITIES and their full address (501 HICKORY LN...)
+
+Bill To: SNF HOLDING COMPANY / CASS INFORMATION SYSTEMS INC and their full address (PO BOX 67...)
+
+Remit To Address: PO Box 660006, Dallas, TX 75266-0006
+
+Customer Numbers: These are unique identifiers for the customer accounts.
+
+SN#: 903515568
+
+Other codes: 11 SNPA, 12 SNTHOL, 6Y DRYVAN, 93 013
+
+Contact Information:
+
+Phone: 1-800-755-2728
+
+Email: ltlccg@xpo.com
+
+Financial & Shipment Details
+All Monetary Values: This includes all charges, discounts, and totals.
+
+Charges: $4,690.00
+
+Discount: -$4,207.45
+
+Surcharge: $123.00
+
+Other charges: $150.00, $50.00
+
+Total Due: US $732.14
+
+Shipment Details:
+
+Shipment Date: 04/01/2025
+
+Description of Articles: PLT RESIN COMPONT 46030-0 CLASS 55 (This could be commercially sensitive information about what is being traded).
+
+Weight: 9,656 LBS
+
+Internal and Document-Specific Codes
+Barcode on the left side.
+
+Tracking/Processing Codes at the bottom of the page:
+
+177422556 0073214 6
+
+46 6 EP 2 870 E0087 I0167 D4305845003 S3 P4267713 0032 0037

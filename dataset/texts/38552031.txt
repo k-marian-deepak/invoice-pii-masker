@@ -1,0 +1,69 @@
+Of course. Here is a list of all the private and sensitive information you should mask in this invoice.
+
+Highly Sensitive Information (Mask These First)
+Business & Account Numbers: These are unique identifiers for the companies, accounts, and the transaction itself.
+
+Freight Bill / PRO Number: 28510427
+
+Shipper / Customer Account Numbers: 2790343 and 9899006
+
+Shipper BL Number: 310023222240
+
+PO Number: 2025021014522
+
+Shipper Reference Number: 821776613
+
+Customer (on remit stub): 6M27903
+
+Company & Location Information
+Company Names & Addresses: Masking these prevents linking the document to the specific parties involved.
+
+Sender/Biller: DAYTON FREIGHT LINES, INC and their full address (PO BOX 1030, VANDALIA, OH...)
+
+Bill To: SQUARE D CO (DES MOINES DOCK) / C/O CASS INFORMATION SYSTEMS and their address (PO BOX 67, SAINT LOUIS, MO...)
+
+Shipper: SQUARE D COMPANY DROP DSM SC and their address (1101 ADVENTURELAND DR...)
+
+Consignee: DIVERSIFIED REMEDIATION CONTROL and their address (9325 WINNETKA AVE N...)
+
+Contact Information:
+
+Phone: (937) 264-4060
+
+Financial & Shipment Details
+All Monetary Values: This includes all charges, rates, and totals.
+
+Charges: $96.00
+
+Discount: $37.50
+
+Other Charges: $8.04
+
+Line Item Amounts: $96.00, $8.04, $104.04
+
+Pay This Amount / Invoice Amount: $66.54
+
+Dates:
+
+Date: 02/13/2025
+
+Invoice Date: 02/18/2025
+
+Shipment Specifics: This information can be commercially sensitive.
+
+Description: NMFC# 03160 Sub 9, SKID CIRCUIT BREAKERS OR SWITCHES...
+
+Fuel Surcharge Percentage: 13.750%
+
+Weight: 70
+
+Rate: 119
+
+Payment Terms: PREPAID NET 15 DAYS
+
+Internal and Document-Specific Codes
+All Barcodes.
+
+Machine-readable line below the Bill To address: E0028 10007...
+
+Tracking Codes at the bottom left: 0038 0168

@@ -1,0 +1,94 @@
+File Name: 38552225.png
+
+Personal Information (Mask with Highest Priority)
+Contact Person Details:
+
+Name: BLAKE PERKINS
+
+Email: BLAKE.PERKINS@NEW-INDYCB.COM
+
+Phone Number: 805-271-7203
+
+Other Contact Details:
+
+Phone: 1-800-755-2728, 1-800-774-6886
+
+Email: ltlccg@xpo.com
+
+Highly Sensitive Information
+Bank Account Details:
+
+Routing #: 121000248
+
+Account #: 4943582890
+
+SWIFT Code: WFBIUS6S
+
+Tax & Business IDs:
+
+FED TAX ID#: 94-2904864
+
+DUNS#: 08-043-1663
+
+Customer Number:
+
+SN#: 901460838
+
+Company & Location Information
+Company Names & Addresses:
+
+Shipper: CHEMTALL INC and their address (CHEMICAL PLANT RD...)
+
+Consignee: NEW INDY CONTAINERBOARD and their address (5930 PERKINS RD...)
+
+Bill To: SNF HOLDING COMPANY / CASS INFORMATION SYSTEMS INC and their address (PO BOX 67...)
+
+XPO Addresses: PO BOX 982020, N RICHLAND HILLS... and PO Box 660006, Dallas...
+
+Other Associated Names/Locations: WAL-M4 WILLIAMS, ASSOC - 80-405 EAST 78TH STREET BLOOMINGTON, MN 55420, MAUSER PACKAGING SOLUTIONS
+
+Financial & Shipment Details
+Invoice Number:
+
+LTL INVOICE#: 584-493136
+
+All Monetary Values:
+
+Charges: $24,854.00
+
+Discount: -$23,636.31
+
+Surcharges/Fees: $308.40, $25.00
+
+Total Due: US $1,611.25
+
+Dates:
+
+Shipment Date: 03/21/2025
+
+Payment Due Date: 04/27/2025
+
+Shipment Specifics:
+
+Description of Articles: PLT RESIN COMPOUND 46030-0 CLASS 55, etc.
+
+Fuel Surcharge Percentage: 20.29%
+
+Weight: 9,692 LBS, 10,000 LBS
+
+Rate: $248.54
+
+Total Distance: 2498 MI
+
+Receiving Hours: M-F 7AM - 3:30PM
+
+Internal and Document-Specific Codes
+All Barcodes.
+
+Machine-readable lines:
+
+584493136 0161125 9
+
+22 8 SP 3 430 E0022 I0549 D4388256028 S3 P4266540 0009 0037
+
+Internal Customer Codes: 11 SNPA, 12 SNFHOL, 6Y DRYVAN, 93 010

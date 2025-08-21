@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice PII Masker - KGiSL 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 1000px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .upload-section {
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .upload-section:hover {
+            border-color: #764ba2;
+            background: rgba(102, 126, 234, 0.05);
+            transform: translateY(-2px);
+        }
+        
+        .upload-section.dragover {
+            border-color: #28a745;
+            background: rgba(40, 167, 69, 0.1);
+        }
+        
+        .upload-icon {
+            font-size: 4em;
+            color: #667eea;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .upload-section:hover .upload-icon {
+            transform: scale(1.1);
+        }
+        
+        .upload-text {
+            font-size: 1.3em;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .upload-subtext {
+            color: #666;
+            font-size: 1em;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .options-section {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .option-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        select, input[type="text"], input[type="number"] {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+        
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4);
+        }
+        
+        .results-section {
+            display: none;
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .image-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .image-container {
+            text-align: center;
+        }
+        
+        .image-container h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.02);
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .status-message {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .feature h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .feature p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .image-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ Invoice PII Masker</h1>
+            <p>Advanced Personal Information Masking Tool</p>
+            <div class="badge">KGiSL 2025 Hackathon</div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔍</div>
+                <h4>OCR Detection</h4>
+                <p>Advanced text recognition using Tesseract OCR</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎭</div>
+                <h4>Smart Masking</h4>
+                <p>Intelligent pattern-based PII detection</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h4>Fast Processing</h4>
+                <p>Real-time image processing and masking</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <h4>Memory Learning</h4>
+                <p>Learns from training data for better accuracy</p>
+            </div>
+        </div>
+        
+        <div class="upload-section" onclick="document.getElementById('fileInput').click()">
+            <div class="upload-icon">📄</div>
+            <div class="upload-text">Drop your invoice here or click to browse</div>
+            <div class="upload-subtext">Supports JPG, PNG, GIF, BMP formats</div>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+        
+        <div class="options-section" id="optionsSection" style="display: none;">
+            <h3 style="margin-bottom: 20px; color: #333;">🎛️ Masking Options</h3>
+            <div class="options-grid">
+                <div class="option-group">
+                    <label>Mask Mode</label>
+                    <select id="mode">
+                        <option value="black" selected>Black Rectangle</option>
+                        <option value="blur">Blur Effect</option>
+                        <option value="pixelate">Pixelate</option>
+                        <option value="color">Solid Color</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label>Color (for solid color mode)</label>
+                    <input type="text" id="color" value="#000000" placeholder="#000000">
+                </div>
+                <div class="option-group">
+                    <label>Pixel Size (for pixelate mode)</label>
+                    <input type="number" id="pixel_size" value="12" min="4" max="50">
+                </div>
+                <div class="option-group">
+                    <label>Tesseract Path (optional)</label>
+                    <input type="text" id="tesseract_cmd" placeholder="/usr/local/bin/tesseract">
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <button class="btn" id="processBtn" disabled>🔍 Process & Mask Invoice</button>
+            <button class="btn btn-secondary" id="downloadBtn" style="display: none;">💾 Download Masked Image</button>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p id="loadingText">Processing your invoice... Please wait.</p>
+        </div>
+        
+        <div class="status-message" id="statusMessage" style="display: none;"></div>
+        
+        <div class="results-section" id="results">
+            <div class="image-comparison">
+                <div class="image-container">
+                    <h3>📄 Original Invoice</h3>
+                    <img id="originalImage" alt="Original invoice">
+                </div>
+                <div class="image-container">
+                    <h3>🛡️ Masked Invoice</h3>
+                    <img id="maskedImage" alt="Masked invoice">
+                </div>
+            </div>
+        </div>
+        
+        <p style="opacity:.7;margin-top:16px;text-align:center;">
+            💡 Tip: Train memory first with paired PNG/TXT files to improve label anchoring accuracy.
+        </p>
+    </div>
+    
+    <script>
+        class InvoicePIIMaskingTool {
+            constructor() {
+                this.selectedFile = null;
+                this.maskedImageBlob = null;
+                this.initializeEventListeners();
+            }
+            
+            initializeEventListeners() {
+                const fileInput = document.getElementById('fileInput');
+                const processBtn = document.getElementById('processBtn');
+                const downloadBtn = document.getElementById('downloadBtn');
+                const uploadSection = document.querySelector('.upload-section');
+                
+                fileInput.addEventListener('change', (e) => this.handleFileSelect(e));
+                processBtn.addEventListener('click', () => this.processInvoice());
+                downloadBtn.addEventListener('click', () => this.downloadMaskedImage());
+                
+                // Drag and drop functionality
+                uploadSection.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadSection.classList.add('dragover');
+                });
+                
+                uploadSection.addEventListener('dragleave', () => {
+                    uploadSection.classList.remove('dragover');
+                });
+                
+                uploadSection.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadSection.classList.remove('dragover');
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        this.processFile(files[0]);
+                    }
+                });
+            }
+            
+            handleFileSelect(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    this.processFile(file);
+                }
+            }
+            
+            processFile(file) {
+                if (!file.type.startsWith('image/')) {
+                    this.showStatus('Please select a valid image file.', 'error');
+                    return;
+                }
+                
+                this.selectedFile = file;
+                
+                // Show preview
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('originalImage').src = e.target.result;
+                    document.getElementById('processBtn').disabled = false;
+                    document.getElementById('optionsSection').style.display = 'block';
+                    this.showStatus('Invoice loaded successfully! Configure options and click "Process & Mask Invoice".', 'success');
+                };
+                reader.readAsDataURL(file);
+            }
+            
+            async processInvoice() {
+                if (!this.selectedFile) {
+                    this.showStatus('Please select an invoice image first.', 'error');
+                    return;
+                }
+                
+                this.showLoading(true);
+                this.hideStatus();
+                
+                try {
+                    // Prepare form data
+                    const formData = new FormData();
+                    formData.append('file', this.selectedFile);
+                    formData.append('mode', document.getElementById('mode').value);
+                    formData.append('color', document.getElementById('color').value);
+                    formData.append('pixel_size', document.getElementById('pixel_size').value);
+                    
+                    const tesseractCmd = document.getElementById('tesseract_cmd').value;
+                    if (tesseractCmd) {
+                        formData.append('tesseract_cmd', tesseractCmd);
+                    }
+                    
+                    // Update loading text
+                    document.getElementById('loadingText').textContent = 'Analyzing invoice with OCR...';
+                    
+                    // Send request to backend (FastAPI server)
+                    const response = await fetch('http://localhost:8000/mask', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.detail || `Server error: ${response.status}`);
+                    }
+                    
+                    // Update loading text
+                    document.getElementById('loadingText').textContent = 'Applying masking...';
+                    
+                    // Get the masked image
+                    this.maskedImageBlob = await response.blob();
+                    const maskedImageUrl = URL.createObjectURL(this.maskedImageBlob);
+                    
+                    // Display results
+                    document.getElementById('maskedImage').src = maskedImageUrl;
+                    document.getElementById('results').style.display = 'block';
+                    document.getElementById('downloadBtn').style.display = 'inline-block';
+                    
+                    this.showStatus('Invoice processing complete! PII has been successfully masked.', 'success');
+                    
+                } catch (error) {
+                    console.error('Processing error:', error);
+                    this.showStatus(`Error processing invoice: ${error.message}`, 'error');
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+            
+            downloadMaskedImage() {
+                if (!this.maskedImageBlob) {
+                    this.showStatus('No masked image available for download.', 'error');
+                    return;
+                }
+                
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(this.maskedImageBlob);
+                link.download = `masked_invoice_${new Date().getTime()}.png`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                this.showStatus('Masked invoice downloaded successfully!', 'success');
+            }
+            
+            showLoading(show) {
+                document.getElementById('loading').style.display = show ? 'block' : 'none';
+                document.getElementById('processBtn').disabled = show;
+            }
+            
+            showStatus(message, type) {
+                const statusEl = document.getElementById('statusMessage');
+                statusEl.textContent = message;
+                statusEl.className = `status-message status-${type}`;
+                statusEl.style.display = 'block';
+                
+                if (type === 'success') {
+                    setTimeout(() => this.hideStatus(), 5000);
+                }
+            }
+            
+            hideStatus() {
+                document.getElementById('statusMessage').style.display = 'none';
+            }
+        }
+        
+        // Initialize the tool when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new InvoicePIIMaskingTool();
+        });
+    </script>
+</body>
+</html>

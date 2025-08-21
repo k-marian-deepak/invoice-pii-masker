@@ -1,0 +1,104 @@
+File Name: 38552162.png
+
+Personal / Contact Information (Mask with High Priority)
+Contact Phone Numbers:
+
+1-800-755-2728
+
+419-333-3876 (POC - Point of Contact)
+
+800-774-6886
+
+Email:
+
+ltlccg@xpo.com
+
+Highly Sensitive Information
+Bank Account Details:
+
+Routing #: 121000248
+
+Account #: 4943582890
+
+SWIFT Code: WFBIUS6S
+
+Tax & Business IDs:
+
+FED TAX ID#: 94-2904864
+
+DUNS#: 08-043-1663
+
+Customer Number:
+
+SN#: 902818622
+
+Company & Location Information
+Company Names:
+
+Shipper: CHEMTALL INC
+
+Consignee: CITY OF FREMONT, OH
+
+Bill To: SNF HOLDING COMPANY / CASS INFORMATION SYSTEMS INC
+
+Customer Name: MAUSER APACKAGING
+
+Addresses:
+
+PO BOX 982020, N RICHLAND HILLS, TX 76182
+
+PO BOX 67, SAINT LOUIS, MO 63166-0067
+
+CHEMICAL PLANT RD, RICEBORO, GA, 3132D
+
+1019 SAND ROAD, FREMONT, OH, 43420
+
+PO Box 660006, Dallas, TX 75266-0006
+
+Financial & Shipment Details
+Invoice Number:
+
+LTL INVOICE#: 584-493313
+
+All Monetary Values:
+
+Charges: $3,378.15
+
+Discount: -$3,134.92
+
+Surcharge: $72.97
+
+Other Charges: $50.00
+
+Total Due: US $366.20
+
+Dates:
+
+Shipment Date: 03/25/2025
+
+Payment Due Date: 04/27/2025
+
+Shipment Specifics:
+
+Description of Articles: PLT RESIN COMPOUND 46030-0 CLASS 55, APT APPOINTMENT, etc.
+
+Fuel Surcharge Percentage: 20.00%
+
+Weight: 2,414 LBS
+
+Rate: $139.94
+
+Total Distance: 627 MI
+
+Delivery Hours: 7AM-2PM MON-FRI
+
+Internal and Document-Specific Codes
+All Barcodes.
+
+Machine-readable lines:
+
+584493313 0036620 8
+
+22 8 SR 3 430 S0022 I0559 D4388257102 S3 P4266540 0019 0037
+
+Internal Customer Codes: 11 SNPA, 12 SNFHOL, 6Y DRYVAN, 93 010

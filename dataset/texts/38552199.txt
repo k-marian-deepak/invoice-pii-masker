@@ -1,0 +1,92 @@
+File Name: 38552199.png
+
+Personal Information (Mask with Highest Priority)
+Contact Person Details:
+
+Name: GARY SKAGGS
+
+Phone Number: 573-663-8683
+
+Other Contact Details:
+
+Phone: 800-774-6886 and 1-800-755-2728
+
+Email: ltlccg@xpo.com
+
+Highly Sensitive Information
+Bank Account Details:
+
+Routing #: 121000248
+
+Account #: 4943582890
+
+SWIFT Code: WFBIUS6S
+
+Tax & Business IDs:
+
+FED TAX ID#: 94-2904864
+
+DUNS#: 08-043-1663
+
+Customer Number:
+
+SN#: 902645751
+
+Company & Location Information
+Company Names & Addresses:
+
+Shipper: CHEMTALL INC and their address (CHEMICAL PLANT RD...)
+
+Consignee: DOE RUN CO WAREHOUSE 19 / SWEETWATER MINE and their address (3882 SWEETWATER MINE RD...)
+
+Bill To: SNF HOLDING COMPANY / CASS INFORMATION SYSTEMS INC and their address (PO BOX 67...)
+
+XPO Addresses: PO BOX 982020, N RICHLAND HILLS... and PO Box 660006, Dallas...
+
+Other Company Name: PACKAGING SOLUTIONS
+
+Financial & Shipment Details
+Invoice Number:
+
+LTL INVOICE#: 584-493151
+
+All Monetary Values:
+
+Charges: $3,573.68
+
+Discount: -$3,387.17
+
+Surcharges/Fees: $56.42, $50.00, $55.75
+
+Total Due: US $348.68
+
+Dates:
+
+Shipment Date: 03/21/2025
+
+Payment Due Date: 04/27/2025
+
+Shipment Specifics:
+
+Description of Articles: PLT RESIN COMPOUND 46030-0 CLASS 55, etc.
+
+Fuel Surcharge Percentage: 20.29%
+
+Weight: 2,423 LBS
+
+Rate: $147.49
+
+Total Distance: 623 MI
+
+Delivery Hours: 7AM TO 3PM MON THRU FRI
+
+Internal and Document-Specific Codes
+All Barcodes.
+
+Machine-readable lines:
+
+584493151 0034868 8
+
+22 8 SP 3 430 E0022 I0552 D4388256268 S3 P4266540 0012 0037
+
+Internal Customer Codes: 11 SNPA, 12 SNFHOL, 6Y DRYVAN, 93 010

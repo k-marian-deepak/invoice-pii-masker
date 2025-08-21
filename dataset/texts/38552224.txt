@@ -1,0 +1,75 @@
+File Name: 38552224.png
+
+Highly Sensitive Information & IDs
+Unique Identifiers: These are specific to this transaction and the parties involved.
+
+Freight Bill No: I327611538
+
+PO # (in description): 59530
+
+Bill of Lading No: NONE (field should be masked)
+
+Customer & Internal Codes:
+
+Customer Code: P0028V
+
+Consignee/Shipper Codes: FARP29, PURB43
+
+Document ID (at the top right): GL_INV00555_000140 US-015-000000162
+
+Item Code (in description): 568909
+
+Company & Location Information
+Company Names & Addresses:
+
+Shipper: FAR PACKAGING CO INC and their address (2505 AIR PARK DR...)
+
+Consignee: PARKER HANNIFIN and their address (8425 TRIAD DR...)
+
+Bill To/Remit From: PARKER HANNIFIN / CASS and their address (PO BOX 67, SAINT LOUIS...)
+
+R+L Carriers Addresses: PO Box 271 | Wilmington, Ohio 45177-0271 and 600 GILLAM RD...
+
+Remit Payment Address: PO BOX 10020, PORT WILLIAM OH 45164-2000
+
+Contact Information:
+
+Phone Numbers: 937-382-1494, 800-543-5589
+
+Website: www.gorlc.com
+
+Financial & Shipment Details
+All Monetary Values:
+
+Pay This Amount: $174.94
+
+Line Item Amounts: $405.72, $18.74
+
+Discount: -$249.52
+
+Rate: $40.41, .615, .1200
+
+Shipment Specifics:
+
+Date: 04/07/25
+
+Entire Description Block: This includes STACK OF EMPTY WOOD BOXES, all dimensions (1 PC 45.00 X 41.00...), cubic feet calculations, and other charge details.
+
+Tariff Codes: CZR9901, C175
+
+Weight: 1004
+
+Pieces: 3
+
+Payment Information:
+
+The CARD NUMBER, EXP. DATE, and SIGNATURE fields on the remittance stub.
+
+Internal and Document-Specific Codes
+All Barcodes, including the QR code.
+
+Machine-readable lines:
+
+The numbers below the barcodes (e.g., 000308 000000162).
+
+The line at the very bottom of the page: 73 51 50 761153 56 0000017494 9

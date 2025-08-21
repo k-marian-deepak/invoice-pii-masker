@@ -1,0 +1,70 @@
+File Name: 38552675.png
+
+Personal / Processor Information
+Processor Code: LBGOTT
+
+Contact Details:
+
+Email: BILLING@HENIFF.COM
+
+Phone Number: 630-230-2113
+
+Highly Sensitive IDs & Reference Numbers
+Transaction & Document IDs:
+
+PRO. NO.: 2554604B
+
+BL #: 902984708
+
+SID: 902984708
+
+Vehicle Identifiers:
+
+TRACTOR #: 6563
+
+TRAILER #: 1RY94298
+
+Company & Location Information
+Company Names & Addresses:
+
+Biller: HENIFF TRANSPORTATION SYSTEMS, LLC. and its addresses (202 CARSON CT... and PO BOX 74007095...)
+
+Shipper: BASF CORP. and their address (1609 BIDDLE AVENUE...)
+
+Consignee: HENIFF TRANSPORTATION and their address (495 NE ONEIL WAY...)
+
+Bill To: BASF C/O CASS INFO SYS and their address (PO BOX 17668, SAINT LOUIS...)
+
+Financial & Shipment Details
+All Monetary Values:
+
+Charges: $1,400.00
+
+SubTotal: $1,400.00
+
+Total Due: US $1,400.00
+
+Rates & Quantities:
+
+Billing Quantity: 12.5 Hours
+
+Rate: $112.00 $/Hour
+
+Dates:
+
+Date Billed: 4/21/2025
+
+Date Shipped: 4/14/2025
+
+Date Delivered: 4/18/2025
+
+Total Due By: 05/21/25
+
+Shipment Specifics:
+
+Description: Basf Corp.,, Loading Demurrage
+
+Credit Terms: Net 30
+
+Internal and Document-Specific Codes
+Internal Codes: BASWYAMI, HENREDOR, 11 BASF, ZZ SOLO, BASFADDT
