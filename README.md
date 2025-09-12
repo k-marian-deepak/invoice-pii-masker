@@ -79,8 +79,8 @@ PAN
 ```
 
 Run trainer:
-```bash
-python -m training.train_memory --images dataset/images --labels dataset/labels
+```
+bashpython -m training.train_memory --images dataset/images --labels dataset/texts
 ```
 This updates `data/memory.json` with vendor cues (e.g., synonyms and nearby anchors).
 
