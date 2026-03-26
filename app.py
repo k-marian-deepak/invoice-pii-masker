@@ -16,6 +16,81 @@ from core.masking import apply_mask, Mode
 from core.patterns import PATTERNS, LABEL_SYNONYMS
 from core.alignment import find_label_words
 
+SENSITIVE_KEYWORDS = {
+    "account", "routing", "swift", "tax", "duns", "invoice", "bill", "shipper",
+    "consignee", "customer", "phone", "email", "charges", "discount", "total",
+    "date", "weight", "code", "id", "number", "remit", "sn", "tracking",
+}
+
+def _is_noise_candidate(text: str) -> bool:
+    lower = text.lower().strip()
+    if not lower:
+        return True
+    if lower.endswith((".png", ".jpg", ".jpeg", ".gif", ".bmp")):
+        return True
+    if len(lower.split()) > 14 and not re.search(r'\d|\$|@', lower):
+        return True
+    if lower.startswith((
+        "highly sensitive", "transaction", "financial", "internal", "masking these",
+        "these are unique", "this includes", "this is commercially",
+    )):
+        return True
+    return False
+
+def _looks_sensitive(text: str) -> bool:
+    token = text.strip()
+    if len(token) < 3:
+        return False
+    if _is_noise_candidate(token):
+        return False
+
+    lower = token.lower()
+    words = token.split()
+
+    if re.search(r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b', token, flags=re.IGNORECASE):
+        return True
+    if re.search(r'\b\d{3}[- )]?\d{3}[- ]?\d{4}\b', token):
+        return True
+    if re.search(r'\b\d{1,2}/\d{1,2}/\d{2,4}\b', token):
+        return True
+    if re.search(r'\$?\d{1,3}(?:,\d{3})*(?:\.\d{2})\b', token):
+        return True
+    if re.search(r'\b\d{6,}\b', token):
+        return True
+    if re.search(r'\b[A-Z0-9]{2,}[/-][A-Z0-9-]{2,}\b', token):
+        return True
+    if any(k in lower for k in SENSITIVE_KEYWORDS):
+        return True
+
+    uppercase_words = [w for w in words if w.isupper() and len(w) > 2]
+    if len(words) <= 8 and len(uppercase_words) >= 2:
+        return True
+
+    return False
+
+def _extract_line_candidates(line: str) -> List[str]:
+    candidates: List[str] = []
+
+    if ':' in line:
+        _, rhs = line.split(':', 1)
+        rhs = rhs.strip()
+        if rhs:
+            candidates.append(rhs)
+            for part in re.split(r'\s+and\s+|[;,]|\s+/\s+', rhs, flags=re.IGNORECASE):
+                part = part.strip()
+                if part:
+                    candidates.append(part)
+
+    candidates.extend(re.findall(r'[A-Z]{2,}(?:[-_][A-Z0-9]+)+', line))
+    candidates.extend(re.findall(r'\b\d{3}[- ]?\d{3}[- ]?\d{4}\b', line))
+    candidates.extend(re.findall(r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b', line, flags=re.IGNORECASE))
+    candidates.extend(re.findall(r'\$?\d{1,3}(?:,\d{3})*(?:\.\d{2})\b', line))
+    candidates.extend(re.findall(r'\b\d{1,2}/\d{1,2}/\d{2,4}\b', line))
+    candidates.extend(re.findall(r'\b[A-Z0-9]{2,}[/-][A-Z0-9-]{2,}\b', line))
+    candidates.extend(re.findall(r'\b\d{6,}\b', line))
+
+    return candidates
+
 def parse_txt_labels(txt_path: str) -> List[str]:
     """Parse TXT file and extract likely sensitive values to mask."""
     if not os.path.exists(txt_path):
@@ -30,28 +105,13 @@ def parse_txt_labels(txt_path: str) -> List[str]:
             line = raw_line.strip()
             if not line:
                 continue
-
-            if ':' in line:
-                _, rhs = line.split(':', 1)
-                rhs = rhs.strip()
-                if rhs:
-                    candidates.append(rhs)
-
-            candidates.extend(re.findall(r'[A-Z]{2,}(?:[-_][A-Z0-9]+)+', line))
-            candidates.extend(re.findall(r'\b\d{3}[- ]?\d{3}[- ]?\d{4}\b', line))
-            candidates.extend(re.findall(r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b', line, flags=re.IGNORECASE))
-            candidates.extend(re.findall(r'\b\d{1,3}(?:,\d{3})*(?:\.\d{2})\b', line))
-            candidates.extend(re.findall(r'\b\d{1,2}/\d{1,2}/\d{2,4}\b', line))
-            candidates.extend(re.findall(r'\b[A-Z0-9]{2,}[/-][A-Z0-9-]{2,}\b', line))
-            candidates.extend(re.findall(r'\b\d{6,}\b', line))
+            candidates.extend(_extract_line_candidates(line))
 
         cleaned: List[str] = []
         seen: set[str] = set()
         for value in candidates:
             token = value.strip(" .,;:()[]{}\t\n\r")
-            if len(token) < 3:
-                continue
-            if token.lower().startswith(("highly sensitive", "transaction", "financial", "internal")):
+            if not _looks_sensitive(token):
                 continue
             key = token.lower()
             if key not in seen:
@@ -81,11 +141,15 @@ def find_txt_based_pii_words(words: List[Dict[str, Any]], txt_values: List[str])
     if not txt_values or not words:
         return pii_words
 
-    words_by_line: Dict[int, List[Dict[str, Any]]] = defaultdict(list)
+    words_by_line: Dict[Tuple[int, int, int], List[Dict[str, Any]]] = defaultdict(list)
     normalized_to_words: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
     for word in words:
-        line_num = int(word.get("line_num", 0))
-        words_by_line[line_num].append(word)
+        line_key = (
+            int(word.get("block_num", 0)),
+            int(word.get("par_num", 0)),
+            int(word.get("line_num", 0)),
+        )
+        words_by_line[line_key].append(word)
 
         word_norm = normalize_token(str(word.get("text", "")))
         if word_norm:
@@ -99,6 +163,12 @@ def find_txt_based_pii_words(words: List[Dict[str, Any]], txt_values: List[str])
         if not tokens:
             continue
 
+        has_digit_signal = any(any(ch.isdigit() for ch in t) for t in tokens)
+        alpha_only_multi = len(tokens) > 1 and all(t.isalpha() for t in tokens)
+
+        if len(tokens) > 10 and not has_digit_signal:
+            continue
+
         if len(tokens) == 1:
             target = tokens[0]
             if target in normalized_to_words:
@@ -106,11 +176,15 @@ def find_txt_based_pii_words(words: List[Dict[str, Any]], txt_values: List[str])
                 continue
 
             if len(target) >= 6:
+                fuzzy_threshold = 0.84 if target.isdigit() else 0.86
                 for word_norm, grouped_words in normalized_to_words.items():
                     if len(word_norm) < 6:
                         continue
-                    if similarity(target, word_norm) >= 0.88:
+                    if similarity(target, word_norm) >= fuzzy_threshold:
                         pii_words.extend(grouped_words)
+            continue
+
+        if alpha_only_multi and len(tokens) > 4:
             continue
 
         joined_target = ''.join(tokens)
@@ -124,7 +198,12 @@ def find_txt_based_pii_words(words: List[Dict[str, Any]], txt_values: List[str])
                     continue
 
                 joined_window = ''.join(window)
-                if len(joined_target) >= 8 and len(joined_window) >= 8 and similarity(joined_target, joined_window) >= 0.86:
+                if (
+                    has_digit_signal
+                    and len(joined_target) >= 8
+                    and len(joined_window) >= 8
+                    and similarity(joined_target, joined_window) >= 0.86
+                ):
                     pii_words.extend(line_words[idx:idx + window_size])
 
     unique_words: List[Dict[str, Any]] = []
