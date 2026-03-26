@@ -3,6 +3,9 @@ from werkzeug.utils import secure_filename
 import os
 import io
 import base64
+import re
+from difflib import SequenceMatcher
+from collections import defaultdict
 from PIL import Image
 import numpy as np
 from typing import Dict, Any, List, Tuple
@@ -14,121 +17,131 @@ from core.patterns import PATTERNS, LABEL_SYNONYMS
 from core.alignment import find_label_words
 
 def parse_txt_labels(txt_path: str) -> List[str]:
-    """Parse TXT file to extract values that should be masked."""
+    """Parse TXT file and extract likely sensitive values to mask."""
     if not os.path.exists(txt_path):
         return []
-    
+
     try:
-        with open(txt_path, 'r', encoding='utf-8') as f:
+        with open(txt_path, 'r', encoding='utf-8', errors='ignore') as f:
             content = f.read()
-        
-        print(f"TXT file content preview:\n{content[:500]}...")
-        
-        # Extract specific values that should be masked
-        values_to_mask: List[str] = []
-        
-        # Extract specific patterns from the TXT content
-        lines = content.split('\n')
-        for line in lines:
-            line = line.strip()
+
+        candidates: List[str] = []
+        for raw_line in content.splitlines():
+            line = raw_line.strip()
+            if not line:
+                continue
+
             if ':' in line:
-                # Extract values after colons
-                parts = line.split(':')
-                if len(parts) >= 2:
-                    value = parts[1].strip()
-                    # Clean up common prefixes and suffixes
-                    value = value.replace('$', '').replace(',', '').strip()
-                    if value and value != 'NONE' and len(value) > 2:
-                        values_to_mask.append(value)
-            
-            # Also look for standalone values (like in the description)
-            # Extract alphanumeric codes, IDs, etc.
-            import re
-            # Look for patterns like codes, IDs, phone numbers
-            code_patterns = [
-                r'\b[A-Z]+\d+[A-Z]*\b',  # Codes like P0028V, CNC183
-                r'\b\d{3}-\d{3}-\d{4}\b',  # Phone numbers
-                r'\b[A-Z]{2,}_[A-Z]+\d+_\d+\b',  # Document IDs
-                r'\b\d{2}/\d{2}/\d{2,4}\b',  # Dates
-                r'\b\$\d+\.\d{2}\b',  # Money amounts
-            ]
-            
-            for pattern in code_patterns:
-                matches = re.findall(pattern, line)
-                values_to_mask.extend(matches)
-        
-        # Manual extraction of key values mentioned in the TXT
-        key_values = [
-            'I457445745',  # Freight Bill No
-            'P0028V',      # Customer Code
-            'CNC183', 'PAR129',  # Shipper/Consignee Codes
-            'GL_INV00555_000140', 'US-043-000000162',  # Document IDs
-            '937-382-1494', '800-543-5589',  # Phone numbers
-            '85.57', '76.40', '9.17', '50.00',  # Amounts
-            '04/07/25',    # Date
-            'CZR9901', 'C50',  # Tariff codes
-            '91', '1',     # Weight, pieces
-            '000322', '000000162',  # Machine readable
-            '73 52 53 744574 53 000008557 9',  # Bottom line
-        ]
-        
-        values_to_mask.extend(key_values)
-        
-        # Remove duplicates and filter out very short values
-        unique_values = list(set([v for v in values_to_mask if len(v.strip()) > 1]))
-        
-        print(f"Extracted {len(unique_values)} values to mask: {unique_values}")
-        return unique_values
-        
+                _, rhs = line.split(':', 1)
+                rhs = rhs.strip()
+                if rhs:
+                    candidates.append(rhs)
+
+            candidates.extend(re.findall(r'[A-Z]{2,}(?:[-_][A-Z0-9]+)+', line))
+            candidates.extend(re.findall(r'\b\d{3}[- ]?\d{3}[- ]?\d{4}\b', line))
+            candidates.extend(re.findall(r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b', line, flags=re.IGNORECASE))
+            candidates.extend(re.findall(r'\b\d{1,3}(?:,\d{3})*(?:\.\d{2})\b', line))
+            candidates.extend(re.findall(r'\b\d{1,2}/\d{1,2}/\d{2,4}\b', line))
+            candidates.extend(re.findall(r'\b[A-Z0-9]{2,}[/-][A-Z0-9-]{2,}\b', line))
+            candidates.extend(re.findall(r'\b\d{6,}\b', line))
+
+        cleaned: List[str] = []
+        seen: set[str] = set()
+        for value in candidates:
+            token = value.strip(" .,;:()[]{}\t\n\r")
+            if len(token) < 3:
+                continue
+            if token.lower().startswith(("highly sensitive", "transaction", "financial", "internal")):
+                continue
+            key = token.lower()
+            if key not in seen:
+                seen.add(key)
+                cleaned.append(token)
+
+        print(f"Extracted {len(cleaned)} values from TXT file")
+        return cleaned
+
     except Exception as e:
         print(f"Error reading TXT file {txt_path}: {e}")
         return []
 
+def normalize_token(text: str) -> str:
+    """Normalize text for OCR-tolerant comparisons."""
+    return re.sub(r'[^a-zA-Z0-9]', '', text).lower()
+
+def similarity(a: str, b: str) -> float:
+    """String similarity in [0,1]."""
+    return SequenceMatcher(None, a, b).ratio()
+
 def find_txt_based_pii_words(words: List[Dict[str, Any]], txt_values: List[str]) -> List[Dict[str, Any]]:
     """Find words that should be masked based on TXT file values."""
     pii_words: List[Dict[str, Any]] = []
-    
-    print(f"Processing {len(txt_values)} TXT values: {txt_values}")
-    print(f"OCR found {len(words)} words total")
-    
-    # First, let's print all OCR words to see what we're working with
-    print("All OCR words:")
-    for i, word in enumerate(words):
-        print(f"  {i}: '{word.get('text', 'N/A')}' at ({word.get('left', 0)}, {word.get('top', 0)})")
-    
-    # Look for exact matches or partial matches of the TXT values in OCR words
+
+    print(f"Processing {len(txt_values)} TXT values")
+    if not txt_values or not words:
+        return pii_words
+
+    words_by_line: Dict[int, List[Dict[str, Any]]] = defaultdict(list)
+    normalized_to_words: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    for word in words:
+        line_num = int(word.get("line_num", 0))
+        words_by_line[line_num].append(word)
+
+        word_norm = normalize_token(str(word.get("text", "")))
+        if word_norm:
+            normalized_to_words[word_norm].append(word)
+
+    for line_num in words_by_line:
+        words_by_line[line_num].sort(key=lambda item: int(item.get("left", 0)))
+
     for value in txt_values:
-        print(f"\nLooking for value: '{value}'")
-        
-        for word in words:
-            word_text = word.get('text', '').strip()
-            
-            # Exact match
-            if word_text == value:
-                print(f"  EXACT MATCH: '{word_text}' == '{value}'")
-                pii_words.append(word)
-            # Partial match (value contains the word or word contains the value)
-            elif value in word_text or word_text in value:
-                print(f"  PARTIAL MATCH: '{word_text}' contains/in '{value}'")
-                pii_words.append(word)
-            # For multi-part values like "73 52 53 744574 53 000008557 9"
-            elif ' ' in value and word_text in value.split():
-                print(f"  PART MATCH: '{word_text}' is part of '{value}'")
-                pii_words.append(word)
-    
-    # Remove duplicates based on word position
+        tokens = [normalize_token(t) for t in re.split(r'\s+', value) if normalize_token(t)]
+        if not tokens:
+            continue
+
+        if len(tokens) == 1:
+            target = tokens[0]
+            if target in normalized_to_words:
+                pii_words.extend(normalized_to_words[target])
+                continue
+
+            if len(target) >= 6:
+                for word_norm, grouped_words in normalized_to_words.items():
+                    if len(word_norm) < 6:
+                        continue
+                    if similarity(target, word_norm) >= 0.88:
+                        pii_words.extend(grouped_words)
+            continue
+
+        joined_target = ''.join(tokens)
+        for line_words in words_by_line.values():
+            norm_line = [normalize_token(str(w.get("text", ""))) for w in line_words]
+            window_size = len(tokens)
+            for idx in range(0, len(norm_line) - window_size + 1):
+                window = norm_line[idx:idx + window_size]
+                if window == tokens:
+                    pii_words.extend(line_words[idx:idx + window_size])
+                    continue
+
+                joined_window = ''.join(window)
+                if len(joined_target) >= 8 and len(joined_window) >= 8 and similarity(joined_target, joined_window) >= 0.86:
+                    pii_words.extend(line_words[idx:idx + window_size])
+
     unique_words: List[Dict[str, Any]] = []
+    seen_positions: set[Tuple[int, int, int, int]] = set()
     for word in pii_words:
-        is_duplicate = False
-        for existing in unique_words:
-            if (word.get('left') == existing.get('left') and 
-                word.get('top') == existing.get('top')):
-                is_duplicate = True
-                break
-        if not is_duplicate:
-            unique_words.append(word)
-    
-    print(f"Final unique words to mask: {len(unique_words)}")
+        key = (
+            int(word.get('left', 0)),
+            int(word.get('top', 0)),
+            int(word.get('width', 0)),
+            int(word.get('height', 0)),
+        )
+        if key in seen_positions:
+            continue
+        seen_positions.add(key)
+        unique_words.append(word)
+
+    print(f"Final unique words to mask from TXT matching: {len(unique_words)}")
     return unique_words
 
 def detect_patterns(words: List[Dict[str, Any]]) -> List[str]:
