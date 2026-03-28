@@ -18,9 +18,23 @@ python -m venv .venv
 # macOS/Linux
 source .venv/bin/activate
 
-pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install -U pip setuptools wheel
+python -m pip install -r requirements.txt
 ```
+
+### Dependency troubleshooting (recommended)
+
+If setup fails due to package version mismatches, run:
+
+```bash
+sed -i 's/^numpy==1\.24\.3$/numpy==1.26.4/' requirements.txt
+python -m pip install -U pip setuptools wheel
+python -m pip install -r requirements.txt
+```
+
+Notes:
+- If `requirements.txt` already contains `numpy==1.26.4`, the `sed` step is a no-op and safe to run.
+- Prefer `python -m pip ...` to ensure installs go into the currently active virtual environment.
 
 ### Install Tesseract OCR
 - Windows: download from UB Mannheim build or tesseract-ocr.github.io, ensure `tesseract.exe` is in PATH.
@@ -80,7 +94,7 @@ PAN
 
 Run trainer:
 ```
-bashpython -m training.train_memory --images dataset/images --labels dataset/texts
+python -m training.train_memory --images dataset/images --labels dataset/texts
 ```
 This updates `data/memory.json` with vendor cues (e.g., synonyms and nearby anchors).
 
