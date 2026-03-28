@@ -1,3 +1,4 @@
+# pyright: reportMissingTypeStubs=false, reportUnknownArgumentType=false, reportUnknownVariableType=false, reportUnknownMemberType=false
 from flask import Flask, render_template, request, jsonify
 from werkzeug.utils import secure_filename
 import os
