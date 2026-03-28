@@ -33,13 +33,14 @@ def main(images: str, labels: str) -> None:
     for stem in matched:
         fields = parse_txt_labels(txt_map[stem])
         # augment synonyms with what appears in txt (treated as labels to seek)
+        label_synonyms: Dict[str, List[str]] = mem.setdefault("label_synonyms", {})
         for f in fields:
-            if f not in mem["label_synonyms"]:
-                mem["label_synonyms"][f] = [f]
+            if f not in label_synonyms:
+                label_synonyms[f] = [f]
             else:
-                if f not in mem["label_synonyms"][f]:
+                if f not in label_synonyms[f]:
                     # ensure the key has itself as synonym (idempotent)
-                    pass
+                    label_synonyms[f].append(f)
         # vendor heuristics (just record we saw these fields for this vendor)
         vendor_key = "generic"
         vendors: Dict[str, Any] = mem.setdefault("vendors", {})

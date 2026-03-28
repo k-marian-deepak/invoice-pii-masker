@@ -1,15 +1,16 @@
 \
 from typing import List, Dict, Any, Tuple, Optional
+import os
+import shutil
 from PIL import Image
 import pytesseract
 from pytesseract import Output  # type: ignore
 
 def configure_tesseract(cmd: Optional[str] = None):
     """Configure tesseract executable path."""
-    if cmd:
-        pytesseract.pytesseract.tesseract_cmd = cmd
-    else:
-        pytesseract.pytesseract.tesseract_cmd = r"C:/Program Files/Tesseract-OCR/tesseract.exe"
+    resolved_cmd = cmd or os.getenv("TESSERACT_CMD") or shutil.which("tesseract")
+    if resolved_cmd:
+        pytesseract.pytesseract.tesseract_cmd = resolved_cmd
 
 def ocr_words(image: Image.Image) -> List[Dict[str, Any]]:
     """

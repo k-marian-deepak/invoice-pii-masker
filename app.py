@@ -3,24 +3,128 @@ from werkzeug.utils import secure_filename
 import os
 import io
 import base64
+import json
 import re
 from difflib import SequenceMatcher
 from collections import defaultdict
 from PIL import Image
 import numpy as np
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List, Tuple, Optional, cast
 
 # Import your existing modules
 from core.ocr import ocr_words, configure_tesseract
 from core.masking import apply_mask, Mode
 from core.patterns import PATTERNS, LABEL_SYNONYMS
-from core.alignment import find_label_words
+from core.alignment import find_label_words, right_of, below, box_of_word
 
 SENSITIVE_KEYWORDS = {
     "account", "routing", "swift", "tax", "duns", "invoice", "bill", "shipper",
     "consignee", "customer", "phone", "email", "charges", "discount", "total",
     "date", "weight", "code", "id", "number", "remit", "sn", "tracking",
 }
+
+MIN_CONFIDENCE = 20.0
+MEMORY_PATH = os.path.join("data", "memory.json")
+
+
+def _word_confidence(word: Dict[str, Any]) -> float:
+    raw = word.get("conf", -1.0)
+    try:
+        return float(raw)
+    except (TypeError, ValueError):
+        return -1.0
+
+
+def _filter_confident_words(words: List[Dict[str, Any]], min_conf: float = MIN_CONFIDENCE) -> List[Dict[str, Any]]:
+    filtered: List[Dict[str, Any]] = []
+    for word in words:
+        conf = _word_confidence(word)
+        # Keep unknown confidence values (-1) to avoid dropping valid OCR tokens.
+        if conf == -1.0 or conf >= min_conf:
+            filtered.append(word)
+    return filtered
+
+
+def _dedupe_words_by_box(words: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    unique_words: List[Dict[str, Any]] = []
+    seen_positions: set[Tuple[int, int, int, int]] = set()
+    for word in words:
+        key = (
+            int(word.get("left", 0)),
+            int(word.get("top", 0)),
+            int(word.get("width", 0)),
+            int(word.get("height", 0)),
+        )
+        if key in seen_positions:
+            continue
+        seen_positions.add(key)
+        unique_words.append(word)
+    return unique_words
+
+
+def _group_words_by_line(words: List[Dict[str, Any]]) -> List[List[Dict[str, Any]]]:
+    words_by_line: Dict[Tuple[int, int, int], List[Dict[str, Any]]] = defaultdict(list)
+    for word in words:
+        line_key = (
+            int(word.get("block_num", 0)),
+            int(word.get("par_num", 0)),
+            int(word.get("line_num", 0)),
+        )
+        words_by_line[line_key].append(word)
+
+    lines: List[List[Dict[str, Any]]] = []
+    for line_words in words_by_line.values():
+        lines.append(sorted(line_words, key=lambda item: int(item.get("left", 0))))
+    return lines
+
+
+def _line_string_with_spans(line_words: List[Dict[str, Any]]) -> Tuple[str, List[Tuple[int, int]]]:
+    parts: List[str] = []
+    spans: List[Tuple[int, int]] = []
+    cursor = 0
+    for i, word in enumerate(line_words):
+        text = str(word.get("text", "")).strip()
+        if not text:
+            continue
+        if i > 0:
+            parts.append(" ")
+            cursor += 1
+        start = cursor
+        parts.append(text)
+        cursor += len(text)
+        spans.append((start, cursor))
+    return "".join(parts), spans
+
+
+def _term_tokens(term: str) -> List[str]:
+    return [normalize_token(t) for t in term.split() if normalize_token(t)]
+
+
+def _load_runtime_label_synonyms() -> Dict[str, List[str]]:
+    synonyms: Dict[str, List[str]] = {k: list(v) for k, v in LABEL_SYNONYMS.items()}
+    if not os.path.exists(MEMORY_PATH):
+        return synonyms
+
+    try:
+        with open(MEMORY_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        mem_synonyms_raw = data.get("label_synonyms", {})
+        if isinstance(mem_synonyms_raw, dict):
+            mem_synonyms = cast(Dict[str, Any], mem_synonyms_raw)
+            for key, values_raw in mem_synonyms.items():
+                current = set(synonyms.get(key, []))
+                if isinstance(values_raw, list):
+                    values_list = cast(List[Any], values_raw)
+                    for value in values_list:
+                        if isinstance(value, str) and value.strip():
+                            current.add(value.strip())
+                if key.strip():
+                    current.add(key.strip())
+                synonyms[key] = sorted(current)
+    except Exception as e:
+        print(f"Warning: failed to load memory synonyms from {MEMORY_PATH}: {e}")
+
+    return synonyms
 
 def _is_noise_candidate(text: str) -> bool:
     lower = text.lower().strip()
@@ -136,6 +240,7 @@ def similarity(a: str, b: str) -> float:
 def find_txt_based_pii_words(words: List[Dict[str, Any]], txt_values: List[str]) -> List[Dict[str, Any]]:
     """Find words that should be masked based on TXT file values."""
     pii_words: List[Dict[str, Any]] = []
+    words = _filter_confident_words(words)
 
     print(f"Processing {len(txt_values)} TXT values")
     if not txt_values or not words:
@@ -206,19 +311,7 @@ def find_txt_based_pii_words(words: List[Dict[str, Any]], txt_values: List[str])
                 ):
                     pii_words.extend(line_words[idx:idx + window_size])
 
-    unique_words: List[Dict[str, Any]] = []
-    seen_positions: set[Tuple[int, int, int, int]] = set()
-    for word in pii_words:
-        key = (
-            int(word.get('left', 0)),
-            int(word.get('top', 0)),
-            int(word.get('width', 0)),
-            int(word.get('height', 0)),
-        )
-        if key in seen_positions:
-            continue
-        seen_positions.add(key)
-        unique_words.append(word)
+    unique_words = _dedupe_words_by_box(pii_words)
 
     print(f"Final unique words to mask from TXT matching: {len(unique_words)}")
     return unique_words
@@ -226,43 +319,137 @@ def find_txt_based_pii_words(words: List[Dict[str, Any]], txt_values: List[str])
 def detect_patterns(words: List[Dict[str, Any]]) -> List[str]:
     """Detect patterns in OCR words and return matching pattern types."""
     detected: List[str] = []
-    for word_info in words:
-        text = word_info.get('text', '')
-        for pattern_regex in PATTERNS.values():
-            if pattern_regex.search(text):
-                detected.append(text)  # Store the actual detected text
-    return list(set(detected))  # Remove duplicates
+    for word_info in _find_pattern_words(words):
+        detected.append(str(word_info.get("text", "")))
+    return sorted(set(detected))
 
-def find_pii_words(words: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """Find words that contain PII patterns or are related to label synonyms."""
-    pii_words: List[Dict[str, Any]] = []
-    
-    # Find words matching direct patterns
+
+def _find_pattern_words(words: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    matches: List[Dict[str, Any]] = []
+
+    # Word-level detection (works well when OCR keeps tokens intact).
     for word_info in words:
-        text = word_info.get('text', '')
+        text = str(word_info.get("text", ""))
         for pattern_regex in PATTERNS.values():
             if pattern_regex.search(text):
-                pii_words.append(word_info)
+                matches.append(word_info)
                 break
-    
-    # Find words that are near labels
-    for synonyms in LABEL_SYNONYMS.values():
-        label_words = find_label_words(words, synonyms)
-        pii_words.extend(label_words)
-    
-    # Remove duplicates based on word position
-    unique_words: List[Dict[str, Any]] = []
-    for word in pii_words:
-        is_duplicate = False
-        for existing in unique_words:
-            if (word.get('left') == existing.get('left') and 
-                word.get('top') == existing.get('top')):
-                is_duplicate = True
+
+    # Line-level detection (captures split tokens like GSTIN/amount chunks).
+    for line_words in _group_words_by_line(words):
+        line_text, spans = _line_string_with_spans(line_words)
+        if not line_text or len(spans) != len(line_words):
+            continue
+        for pattern_regex in PATTERNS.values():
+            for match in pattern_regex.finditer(line_text):
+                m_start, m_end = match.span()
+                for idx, (w_start, w_end) in enumerate(spans):
+                    if w_start < m_end and w_end > m_start:
+                        matches.append(line_words[idx])
+
+    return _dedupe_words_by_box(matches)
+
+
+def _find_label_anchor_boxes(words: List[Dict[str, Any]], label_terms: List[str]) -> List[Tuple[int, int, int, int]]:
+    anchors: List[Tuple[int, int, int, int]] = []
+
+    # Keep the existing exact single-token anchor behavior.
+    single_terms = [t for t in label_terms if len(t.split()) == 1]
+    if single_terms:
+        for hit in find_label_words(words, single_terms):
+            anchors.append(box_of_word(hit))
+
+    # Add multi-token label matching across each OCR line.
+    term_tokens = [_term_tokens(term) for term in label_terms]
+    multi_term_tokens = [tokens for tokens in term_tokens if len(tokens) > 1]
+    if not multi_term_tokens:
+        return anchors
+
+    for line_words in _group_words_by_line(words):
+        norm_line = [normalize_token(str(w.get("text", ""))) for w in line_words]
+        for tokens in multi_term_tokens:
+            width = len(tokens)
+            for idx in range(0, len(norm_line) - width + 1):
+                if norm_line[idx:idx + width] != tokens:
+                    continue
+                matched_words = line_words[idx:idx + width]
+                x1 = min(int(w.get("left", 0)) for w in matched_words)
+                y1 = min(int(w.get("top", 0)) for w in matched_words)
+                x2 = max(int(w.get("left", 0)) + int(w.get("width", 0)) for w in matched_words)
+                y2 = max(int(w.get("top", 0)) + int(w.get("height", 0)) for w in matched_words)
+                anchors.append((x1, y1, x2 - x1, y2 - y1))
+
+    seen: set[Tuple[int, int, int, int]] = set()
+    unique_anchors: List[Tuple[int, int, int, int]] = []
+    for box in anchors:
+        if box in seen:
+            continue
+        seen.add(box)
+        unique_anchors.append(box)
+    return unique_anchors
+
+
+def _looks_like_value_token(text: str) -> bool:
+    token = text.strip()
+    if not token:
+        return False
+    if any(regex.search(token) for regex in PATTERNS.values()):
+        return True
+
+    normalized = normalize_token(token)
+    if not normalized:
+        return False
+    if len(normalized) >= 6 and any(c.isdigit() for c in normalized):
+        return True
+    if (
+        len(normalized) >= 8
+        and any(c.isalpha() for c in normalized)
+        and any(c.isdigit() for c in normalized)
+    ):
+        return True
+    return False
+
+
+def _find_anchor_value_words(words: List[Dict[str, Any]], label_terms: List[str]) -> List[Dict[str, Any]]:
+    matched: List[Dict[str, Any]] = []
+    anchors = _find_label_anchor_boxes(words, label_terms)
+
+    for anchor_box in anchors:
+        right_candidates = right_of(anchor_box, words, max_dx=700, same_line_only=True)
+        below_candidates = below(anchor_box, words, max_dy=260)
+
+        right_values = [w for w in right_candidates if _looks_like_value_token(str(w.get("text", "")))]
+        below_values = [w for w in below_candidates if _looks_like_value_token(str(w.get("text", "")))]
+
+        if right_values:
+            matched.extend(right_values[:6])
+            continue
+        if below_values:
+            matched.extend(below_values[:4])
+            continue
+
+        # Conservative fallback: take the nearest token to the right if it's likely meaningful text.
+        for candidate in right_candidates[:2]:
+            txt = str(candidate.get("text", "")).strip()
+            if len(normalize_token(txt)) >= 3:
+                matched.append(candidate)
                 break
-        if not is_duplicate:
-            unique_words.append(word)
-    
-    return unique_words
+
+    return _dedupe_words_by_box(matched)
+
+
+def find_pii_words(words: List[Dict[str, Any]], label_synonyms: Optional[Dict[str, List[str]]] = None) -> List[Dict[str, Any]]:
+    """Find words that contain PII patterns or are likely values near known labels."""
+    confident_words = _filter_confident_words(words)
+    pii_words: List[Dict[str, Any]] = []
+
+    pii_words.extend(_find_pattern_words(confident_words))
+
+    synonyms_map = label_synonyms or LABEL_SYNONYMS
+    for synonyms in synonyms_map.values():
+        pii_words.extend(_find_anchor_value_words(confident_words, synonyms))
+
+    return _dedupe_words_by_box(pii_words)
 
 def hex_to_rgb(hex_color: str) -> Tuple[int, int, int]:
     """Convert hex color to RGB tuple."""
@@ -335,9 +522,8 @@ def mask_image():
         # Convert color
         color_rgb = hex_to_rgb(color_hex)
         
-        # Configure Tesseract if path provided
-        if tesseract_cmd:
-            configure_tesseract(tesseract_cmd)
+        # Configure Tesseract from request, env var, or PATH.
+        configure_tesseract(tesseract_cmd)
         
         # Save uploaded file temporarily
         filename = secure_filename(file.filename)
@@ -388,6 +574,8 @@ def mask_image():
             
             if not txt_found:
                 print(f"No TXT file found for {base_filename}. Checked paths: {txt_paths}")
+
+            runtime_label_synonyms = _load_runtime_label_synonyms()
             
             # Find PII words to mask based on TXT file or fallback to pattern matching
             if txt_found and txt_values:
@@ -396,7 +584,7 @@ def mask_image():
                 print(f"Using TXT-based masking with {len(txt_values)} values, found {len(pii_words)} words to mask")
             else:
                 # Fallback to pattern-based masking
-                pii_words = find_pii_words(words)
+                pii_words = find_pii_words(words, runtime_label_synonyms)
                 print(f"Using pattern-based masking, found {len(pii_words)} words to mask")
             
             print(f"Final PII words to mask: {len(pii_words)}")
@@ -483,9 +671,8 @@ def mask_image_with_txt():
         # Convert color
         color_rgb = hex_to_rgb(color_hex)
         
-        # Configure Tesseract if path provided
-        if tesseract_cmd:
-            configure_tesseract(tesseract_cmd)
+        # Configure Tesseract from request, env var, or PATH.
+        configure_tesseract(tesseract_cmd)
         
         # Save files temporarily
         image_filename = secure_filename(image_file.filename)
@@ -515,9 +702,14 @@ def mask_image_with_txt():
             txt_labels = parse_txt_labels(txt_filepath)
             print(f"Loaded {len(txt_labels)} labels from TXT file: {txt_labels}")
             
-            # Use TXT-based masking
-            pii_words = find_txt_based_pii_words(words, txt_labels)
-            print(f"Found {len(pii_words)} words to mask based on TXT labels")
+            # Use TXT-based masking if values were extracted; otherwise fallback to runtime synonyms.
+            if txt_labels:
+                pii_words = find_txt_based_pii_words(words, txt_labels)
+                print(f"Found {len(pii_words)} words to mask based on TXT labels")
+            else:
+                runtime_label_synonyms = _load_runtime_label_synonyms()
+                pii_words = find_pii_words(words, runtime_label_synonyms)
+                print(f"TXT labels empty; using fallback pattern/anchor masking with {len(pii_words)} words")
             
             # Create a copy for masking
             masked_array = image_array.copy()
