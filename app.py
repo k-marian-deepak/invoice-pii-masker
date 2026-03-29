@@ -26,6 +26,7 @@ SENSITIVE_KEYWORDS = {
 
 MIN_CONFIDENCE = 20.0
 MEMORY_PATH = os.path.join("data", "memory.json")
+MIN_MEMORY_TOKEN_COUNT = 2
 
 
 def _word_confidence(word: Dict[str, Any]) -> float:
@@ -102,30 +103,115 @@ def _term_tokens(term: str) -> List[str]:
 
 
 def _load_runtime_label_synonyms() -> Dict[str, List[str]]:
+    data = _load_runtime_memory()
     synonyms: Dict[str, List[str]] = {k: list(v) for k, v in LABEL_SYNONYMS.items()}
+    mem_synonyms_raw = data.get("label_synonyms", {})
+    if isinstance(mem_synonyms_raw, dict):
+        mem_synonyms = cast(Dict[str, Any], mem_synonyms_raw)
+        for key, values_raw in mem_synonyms.items():
+            current = set(synonyms.get(key, []))
+            if isinstance(values_raw, list):
+                values_list = cast(List[Any], values_raw)
+                for value in values_list:
+                    if isinstance(value, str) and value.strip():
+                        current.add(value.strip())
+            if key.strip():
+                current.add(key.strip())
+            synonyms[key] = sorted(current)
+    return synonyms
+
+
+def _load_runtime_memory() -> Dict[str, Any]:
     if not os.path.exists(MEMORY_PATH):
-        return synonyms
+        return {"label_synonyms": LABEL_SYNONYMS.copy(), "vendors": {}, "value_tokens": {}}
 
     try:
         with open(MEMORY_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
-        mem_synonyms_raw = data.get("label_synonyms", {})
-        if isinstance(mem_synonyms_raw, dict):
-            mem_synonyms = cast(Dict[str, Any], mem_synonyms_raw)
-            for key, values_raw in mem_synonyms.items():
-                current = set(synonyms.get(key, []))
-                if isinstance(values_raw, list):
-                    values_list = cast(List[Any], values_raw)
-                    for value in values_list:
-                        if isinstance(value, str) and value.strip():
-                            current.add(value.strip())
-                if key.strip():
-                    current.add(key.strip())
-                synonyms[key] = sorted(current)
+        if isinstance(data, dict):
+            return cast(Dict[str, Any], data)
     except Exception as e:
-        print(f"Warning: failed to load memory synonyms from {MEMORY_PATH}: {e}")
+        print(f"Warning: failed to load memory from {MEMORY_PATH}: {e}")
 
-    return synonyms
+    return {"label_synonyms": LABEL_SYNONYMS.copy(), "vendors": {}, "value_tokens": {}}
+
+
+def _save_runtime_memory(data: Dict[str, Any]) -> None:
+    try:
+        os.makedirs(os.path.dirname(MEMORY_PATH), exist_ok=True)
+        with open(MEMORY_PATH, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Warning: failed to save memory to {MEMORY_PATH}: {e}")
+
+
+def _should_remember_token(text: str) -> bool:
+    normalized = normalize_token(text)
+    if len(normalized) < 5:
+        return False
+
+    has_digit = any(ch.isdigit() for ch in normalized)
+    has_mixed = any(ch.isdigit() for ch in normalized) and any(ch.isalpha() for ch in normalized)
+    is_email_like = "@" in text
+    is_money_like = bool(re.search(r"\d[\d,]*\.\d{2}", text))
+    return has_digit or has_mixed or is_email_like or is_money_like
+
+
+def _remember_successful_matches(txt_values: List[str], pii_words: List[Dict[str, Any]]) -> None:
+    if not txt_values or not pii_words:
+        return
+
+    memory = _load_runtime_memory()
+    value_tokens_raw = memory.setdefault("value_tokens", {})
+    if not isinstance(value_tokens_raw, dict):
+        value_tokens_raw = {}
+        memory["value_tokens"] = value_tokens_raw
+
+    value_tokens = cast(Dict[str, Any], value_tokens_raw)
+    for word in pii_words:
+        token = str(word.get("text", "")).strip()
+        normalized = normalize_token(token)
+        if not normalized or not _should_remember_token(token):
+            continue
+
+        entry_raw = value_tokens.get(normalized)
+        if isinstance(entry_raw, dict):
+            entry = cast(Dict[str, Any], entry_raw)
+        else:
+            entry = {"count": 0, "samples": []}
+
+        count = int(entry.get("count", 0)) + 1
+        samples_raw = entry.get("samples", [])
+        samples = cast(List[str], samples_raw) if isinstance(samples_raw, list) else []
+        if token not in samples and len(samples) < 5:
+            samples.append(token)
+
+        entry["count"] = count
+        entry["samples"] = samples
+        value_tokens[normalized] = entry
+
+    _save_runtime_memory(memory)
+
+
+def _get_memory_value_tokens() -> Dict[str, int]:
+    memory = _load_runtime_memory()
+    raw = memory.get("value_tokens", {})
+    if not isinstance(raw, dict):
+        return {}
+
+    memory_tokens: Dict[str, int] = {}
+    entries = cast(Dict[str, Any], raw)
+    for token, entry_raw in entries.items():
+        if len(token) < 5:
+            continue
+        if isinstance(entry_raw, dict):
+            entry = cast(Dict[str, Any], entry_raw)
+            count = int(entry.get("count", 0))
+        else:
+            count = 0
+        if count >= MIN_MEMORY_TOKEN_COUNT:
+            memory_tokens[token] = count
+    return memory_tokens
 
 def _is_noise_candidate(text: str) -> bool:
     lower = text.lower().strip()
@@ -439,6 +525,33 @@ def _find_anchor_value_words(words: List[Dict[str, Any]], label_terms: List[str]
     return _dedupe_words_by_box(matched)
 
 
+def _find_memory_value_words(words: List[Dict[str, Any]], memory_tokens: Dict[str, int]) -> List[Dict[str, Any]]:
+    if not memory_tokens:
+        return []
+
+    matched: List[Dict[str, Any]] = []
+    for word in words:
+        text = str(word.get("text", "")).strip()
+        normalized = normalize_token(text)
+        if len(normalized) < 5:
+            continue
+
+        if normalized in memory_tokens and _should_remember_token(text):
+            matched.append(word)
+            continue
+
+        # Conservative fuzzy memory match for OCR-noisy long tokens.
+        if len(normalized) >= 8:
+            for mem_token in memory_tokens.keys():
+                if len(mem_token) < 8:
+                    continue
+                if similarity(normalized, mem_token) >= 0.9 and _should_remember_token(text):
+                    matched.append(word)
+                    break
+
+    return _dedupe_words_by_box(matched)
+
+
 def find_pii_words(words: List[Dict[str, Any]], label_synonyms: Optional[Dict[str, List[str]]] = None) -> List[Dict[str, Any]]:
     """Find words that contain PII patterns or are likely values near known labels."""
     confident_words = _filter_confident_words(words)
@@ -449,6 +562,10 @@ def find_pii_words(words: List[Dict[str, Any]], label_synonyms: Optional[Dict[st
     synonyms_map = label_synonyms or LABEL_SYNONYMS
     for synonyms in synonyms_map.values():
         pii_words.extend(_find_anchor_value_words(confident_words, synonyms))
+
+    memory_tokens = _get_memory_value_tokens()
+    if memory_tokens:
+        pii_words.extend(_find_memory_value_words(confident_words, memory_tokens))
 
     return _dedupe_words_by_box(pii_words)
 
@@ -582,6 +699,7 @@ def mask_image():
             if txt_found and txt_values:
                 # Use TXT-based masking for better accuracy
                 pii_words = find_txt_based_pii_words(words, txt_values)
+                _remember_successful_matches(txt_values, pii_words)
                 print(f"Using TXT-based masking with {len(txt_values)} values, found {len(pii_words)} words to mask")
             else:
                 # Fallback to pattern-based masking
@@ -706,6 +824,7 @@ def mask_image_with_txt():
             # Use TXT-based masking if values were extracted; otherwise fallback to runtime synonyms.
             if txt_labels:
                 pii_words = find_txt_based_pii_words(words, txt_labels)
+                _remember_successful_matches(txt_labels, pii_words)
                 print(f"Found {len(pii_words)} words to mask based on TXT labels")
             else:
                 runtime_label_synonyms = _load_runtime_label_synonyms()
