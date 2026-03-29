@@ -874,5 +874,133 @@ def mask_image_with_txt():
     except Exception as e:
         return jsonify({'error': f'Processing failed: {str(e)}'}), 500
 
+@app.route('/train', methods=['POST'])
+def train_model():
+    """Train the model by learning from image+TXT file pairs."""
+    try:
+        # Check if both files were uploaded
+        if 'image_file' not in request.files or 'txt_file' not in request.files:
+            return jsonify({'error': 'Both image and TXT files are required for training'}), 400
+        
+        image_file = request.files['image_file']
+        txt_file = request.files['txt_file']
+        
+        if (image_file.filename == '' or image_file.filename is None or 
+            txt_file.filename == '' or txt_file.filename is None):
+            return jsonify({'error': 'Both files must be selected'}), 400
+        
+        if not allowed_file(image_file.filename):
+            return jsonify({'error': 'Invalid image file type'}), 400
+        
+        if not txt_file.filename.endswith('.txt'):
+            return jsonify({'error': 'TXT file must have .txt extension'}), 400
+        
+        # Get optional vendor name for better learning
+        vendor_name = request.form.get('vendor_name', 'generic').strip() or 'generic'
+        tesseract_cmd = request.form.get('tesseract_cmd')
+        
+        # Configure Tesseract
+        configure_tesseract(tesseract_cmd)
+        
+        # Save files temporarily
+        image_filename = secure_filename(image_file.filename)
+        txt_filename = secure_filename(txt_file.filename)
+        
+        image_filepath = os.path.join(UPLOAD_FOLDER, image_filename)
+        txt_filepath = os.path.join(UPLOAD_FOLDER, txt_filename)
+        
+        image_file.save(image_filepath)
+        txt_file.save(txt_filepath)
+        
+        try:
+            # Load and process image
+            image = Image.open(image_filepath)
+            if image.mode != 'RGB':
+                image = image.convert('RGB')
+            
+            # Perform OCR
+            words = ocr_words(image)
+            
+            # Parse TXT file for learning labels/values
+            labeled_values = parse_txt_labels(txt_filepath)
+            
+            if not labeled_values:
+                return jsonify({'error': 'No values found in TXT file'}), 400
+            
+            # Load current memory
+            memory = _load_runtime_memory()
+            
+            # Learn from this pair
+            label_synonyms: Dict[str, List[str]] = memory.setdefault("label_synonyms", {})
+            vendors: Dict[str, Any] = memory.setdefault("vendors", {})
+            value_tokens: Dict[str, Dict[str, int]] = memory.setdefault("value_tokens", {})
+            
+            vendors.setdefault(vendor_name, {"fields": {}})
+            vendor_entry = vendors[vendor_name]
+            
+            learned_count = 0
+            
+            # Process each labeled value
+            for value in labeled_values:
+                tokens = [normalize_token(t) for t in value.split() if normalize_token(t)]
+                if not tokens:
+                    continue
+                
+                learned_count += 1
+                
+                # Record as label synonym if it's short (likely a field name)
+                if len(tokens) <= 2:
+                    value_str = value.strip()
+                    if value_str not in label_synonyms:
+                        label_synonyms[value_str] = [value_str]
+                    elif value_str not in label_synonyms[value_str]:
+                        label_synonyms[value_str].append(value_str)
+                    vendor_entry["fields"].setdefault(value_str, 0)
+                    vendor_entry["fields"][value_str] += 1
+                
+                # Learn value token patterns
+                value_key = '|'.join(tokens)
+                if value_key not in value_tokens:
+                    value_tokens[value_key] = {}
+                
+                for token in tokens:
+                    if _should_remember_token(token):
+                        if token not in value_tokens[value_key]:
+                            value_tokens[value_key][token] = 0
+                        value_tokens[value_key][token] += 1
+
+            # Compare annotation values with OCR output and reinforce matched tokens.
+            matched_words = find_txt_based_pii_words(words, labeled_values)
+            if matched_words:
+                _remember_successful_matches(labeled_values, matched_words)
+            
+            # Save updated memory
+            _save_runtime_memory(memory)
+            
+            # Clean up temporary files
+            os.remove(image_filepath)
+            os.remove(txt_filepath)
+            
+            return jsonify({
+                'success': True,
+                'message': f'Trained on {learned_count} labeled values',
+                'vendor': vendor_name,
+                'values_learned': learned_count,
+                'ocr_words_seen': len(words),
+                'ocr_matches': len(matched_words),
+                'tokens_captured': len(value_tokens),
+            })
+            
+        except Exception as processing_error:
+            # Clean up temporary files on error
+            if os.path.exists(image_filepath):
+                os.remove(image_filepath)
+            if os.path.exists(txt_filepath):
+                os.remove(txt_filepath)
+            raise processing_error
+            
+    except Exception as e:
+        return jsonify({'error': f'Training failed: {str(e)}'}), 500
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

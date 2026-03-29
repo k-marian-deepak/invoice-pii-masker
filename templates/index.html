@@ -431,6 +431,17 @@
             <div class="badge">KGiSL 2025 Hackathon - Flask Edition</div>
         </div>
         
+        <div style="text-align: center; margin-bottom: 24px;">
+            <button class="btn btn-secondary" id="modeToggle" onclick="toggleMode()">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
+                    </svg>
+                </span>
+                <span id="modeText">Switch to Training Mode</span>
+            </button>
+        </div>
+        
         <div class="features">
             <div class="feature">
                 <div class="feature-icon" aria-hidden="true">
@@ -473,7 +484,7 @@
             </div>
         </div>
         
-        <div class="upload-section" onclick="document.getElementById('fileInput').click()">
+        <div class="upload-section" onclick="document.getElementById('fileInput').click()" id="maskUpload">
             <div class="upload-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -483,6 +494,38 @@
             <div class="upload-text">Drop your invoice here or click to browse</div>
             <div class="upload-subtext">Supports JPG, PNG, GIF, BMP formats (Max 16MB)</div>
             <input type="file" id="fileInput" accept="image/*">
+        </div>
+        
+        <div class="upload-section" style="display: none;" id="trainUpload">
+            <div style="text-align: center;">
+                <h3 style="margin-bottom: 16px;">Training Mode</h3>
+                <p style="margin-bottom: 20px;">Upload an invoice image and its corresponding annotation TXT file to teach the model.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                    <div onclick="document.getElementById('trainImageInput').click()" style="border: 2px dashed #ccc; padding: 20px; border-radius: 10px; cursor: pointer;">
+                        <div style="font-weight: 600; margin-bottom: 8px;">Invoice Image</div>
+                        <div style="color: #666; font-size: 0.9rem;">Click to select image</div>
+                        <input type="file" id="trainImageInput" accept="image/*" style="display: none;">
+                        <div id="trainImageName" style="margin-top: 8px; font-size: 0.85rem; color: #16a34a;"></div>
+                    </div>
+                    <div onclick="document.getElementById('trainTxtInput').click()" style="border: 2px dashed #ccc; padding: 20px; border-radius: 10px; cursor: pointer;">
+                        <div style="font-weight: 600; margin-bottom: 8px;">Annotation TXT</div>
+                        <div style="color: #666; font-size: 0.9rem;">Click to select TXT file</div>
+                        <input type="file" id="trainTxtInput" accept=".txt" style="display: none;">
+                        <div id="trainTxtName" style="margin-top: 8px; font-size: 0.85rem; color: #16a34a;"></div>
+                    </div>
+                </div>
+                
+                <div class="option-group" style="max-width: 400px; margin: 20px auto;">
+                    <label>Vendor Name (optional)</label>
+                    <input type="text" id="vendorName" placeholder="e.g., Acme Corp, Generic" value="generic">
+                </div>
+                
+                <div class="option-group" style="max-width: 400px; margin: 20px auto;">
+                    <label>Tesseract Path (optional)</label>
+                    <input type="text" id="trainTesseractCmd" placeholder="/usr/local/bin/tesseract">
+                </div>
+            </div>
         </div>
         
         <div class="options-section" id="optionsSection">
@@ -528,7 +571,7 @@
         </div>
         
         <div class="actions">
-            <button class="btn" id="processBtn" disabled>
+            <button class="btn" id="processBtn" disabled style="display: block;">
                 <span class="icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="7"></circle>
@@ -536,6 +579,14 @@
                     </svg>
                 </span>
                 Process & Mask Invoice
+            </button>
+            <button class="btn" id="trainBtn" onclick="trainModel()" disabled style="display: none;">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+                    </svg>
+                </span>
+                Train Model
             </button>
             <button class="btn btn-secondary" id="downloadOriginalBtn" style="display: none;">
                 <span class="icon" aria-hidden="true">
@@ -830,6 +881,125 @@
             document.getElementById('imageModal').style.display = 'none';
         }
         
+        // Training mode toggle
+        let isTrainingMode = false;
+        function toggleMode() {
+            isTrainingMode = !isTrainingMode;
+            const modeToggleBtn = document.getElementById('modeToggle');
+            const modeText = document.getElementById('modeText');
+            const maskUpload = document.getElementById('maskUpload');
+            const trainUpload = document.getElementById('trainUpload');
+            const optionsSection = document.getElementById('optionsSection');
+            const processBtn = document.getElementById('processBtn');
+            const trainBtn = document.getElementById('trainBtn');
+            
+            if (isTrainingMode) {
+                maskUpload.style.display = 'none';
+                trainUpload.style.display = 'block';
+                optionsSection.style.display = 'none';
+                processBtn.style.display = 'none';
+                trainBtn.style.display = 'inline-block';
+                modeText.textContent = 'Switch to Masking Mode';
+                modeToggleBtn.style.background = '#16a34a';
+            } else {
+                maskUpload.style.display = 'block';
+                trainUpload.style.display = 'none';
+                optionsSection.style.display = 'block';
+                processBtn.style.display = 'inline-block';
+                trainBtn.style.display = 'none';
+                modeText.textContent = 'Switch to Training Mode';
+                modeToggleBtn.style.background = '';
+            }
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('statusMessage').style.display = 'none';
+        }
+        
+        // Handle training file inputs
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('trainImageInput')?.addEventListener('change', (e) => {
+                const filename = e.target.files[0]?.name || '';
+                document.getElementById('trainImageName').textContent = filename;
+                updateTrainButton();
+            });
+            
+            document.getElementById('trainTxtInput')?.addEventListener('change', (e) => {
+                const filename = e.target.files[0]?.name || '';
+                document.getElementById('trainTxtName').textContent = filename;
+                updateTrainButton();
+            });
+        });
+        
+        function updateTrainButton() {
+            const imageInput = document.getElementById('trainImageInput');
+            const txtInput = document.getElementById('trainTxtInput');
+            const trainBtn = document.getElementById('trainBtn');
+            
+            trainBtn.disabled = !imageInput.files.length || !txtInput.files.length;
+        }
+        
+        async function trainModel() {
+            const imageFile = document.getElementById('trainImageInput').files[0];
+            const txtFile = document.getElementById('trainTxtInput').files[0];
+            const vendorName = document.getElementById('vendorName').value || 'generic';
+            const tesseractCmd = document.getElementById('trainTesseractCmd').value;
+            
+            if (!imageFile || !txtFile) {
+                alert('Please select both image and TXT files');
+                return;
+            }
+            
+            const masker = document.querySelector('script').maskerInstance;
+            if (!masker) {
+                console.error('Masker instance not found');
+                return;
+            }
+            
+            masker.showLoading(true);
+            masker.hideStatus();
+            document.getElementById('loadingText').textContent = 'Training model on your data...';
+            
+            try {
+                const formData = new FormData();
+                formData.append('image_file', imageFile);
+                formData.append('txt_file', txtFile);
+                formData.append('vendor_name', vendorName);
+                if (tesseractCmd) {
+                    formData.append('tesseract_cmd', tesseractCmd);
+                }
+                
+                const response = await fetch('/train', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `Server error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (!data.success) {
+                    throw new Error(data.error || 'Training failed');
+                }
+                
+                masker.showStatus(`✓ Training complete! Learned ${data.values_learned} values from vendor: ${data.vendor}`, 'success');
+                
+                // Reset form
+                document.getElementById('trainImageInput').value = '';
+                document.getElementById('trainTxtInput').value = '';
+                document.getElementById('trainImageName').textContent = '';
+                document.getElementById('trainTxtName').textContent = '';
+                updateTrainButton();
+                
+            } catch (error) {
+                console.error('Training error:', error);
+                masker.showStatus(`Error during training: ${error.message}`, 'error');
+            } finally {
+                masker.showLoading(false);
+            }
+        }
+        
         // Close modal when clicking outside the image
         window.onclick = function(event) {
             const modal = document.getElementById('imageModal');
@@ -840,7 +1010,10 @@
         
         // Initialize the tool when page loads
         document.addEventListener('DOMContentLoaded', () => {
-            new FlaskInvoiceMasker();
+            const masker = new FlaskInvoiceMasker();
+            document.querySelector('script').maskerInstance = masker;
+            
+            document.getElementById('trainBtn')?.addEventListener('click', trainModel);
         });
     </script>
 </body>
